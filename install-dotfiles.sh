@@ -30,7 +30,7 @@ install_dotfiles() {
         mkdir -p "${DST}/bin"
     fi
     for TRG in ${TRGS[@]}; do
-        ln ${FORCE} -s ${SRC}/${TRG} ${DST}/${TRG}
+        ln ${FORCE} -s "${SRC}/${TRG}" "${DST}/${TRG}"
     done
     echo "The Installation is complete. Please login again."
     exit
@@ -38,7 +38,7 @@ install_dotfiles() {
 
 uninstall_dotfiles() {
     for TRG in ${TRGS[@]}; do
-        rm -rf ${DST}/${TRG}
+        rm -rf "${DST}/${TRG}"
     done
     echo "The Uninstallation is complete."
     exit;
@@ -48,7 +48,7 @@ while getopts 'fu' OPTION; do
     case $OPTION in
         f) FORCE="-f" ;;
         u) uninstall_dotfiles ;;
-        *) echo "Usage: `basename $0` [-f]"; exit 1;;
+        *) echo "Usage: `basename $0` [-fu]"; echo "  -f  Force installation"; echo "  -u  Uninstall"; exit 1;;
     esac
 done
 shift $(($OPTIND - 1))
