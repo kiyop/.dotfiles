@@ -1,0 +1,10 @@
+#!/bin/sh
+case $# in
+  2) PTN="$2"; PS_OPTS="$1";;
+  1) PTN="$1";;
+  *) echo "Usage: `basename $0` [PS_OPTIONS] GREP_REGEX_PATTERN"; exit 1;;
+esac
+
+PS_RES=`ps $PS_OPTS | grep -v "sh $0"`
+echo "$PS_RES" | head -n1
+echo "$PS_RES" | grep --color=auto -ie "$PTN"

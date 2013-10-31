@@ -1,0 +1,43 @@
+# 起動時にウィンドウサイズが変更されるのを抑制
+#termcapinfo xterm 'is=\E[r\E[m\E[2J\E[H\E[?7h\E[?1;4;6l'
+#termcapinfo xterm-256color 'is=\E[r\E[m\E[2J\E[H\E[?7h\E[?1;4;6l'
+term xterm-256color
+termcapinfo xterm-256color 'is=^[r^[m^[2J^[H^[?7h^[?1;4;6l'
+
+# Mac でマウスホイールでスクロールできるようにする
+termcapinfo xterm* ti@:te@
+
+# 文字コードの指定/日本語を使えるようにする
+defutf8 on
+defencoding UTF-8
+encoding UTF-8 UTF-8
+defkanji UTF-8
+cjkwidth on
+
+# スクリーンコマンドモードに入るキーの変更
+#escape ^Zz
+escape ^Aa
+
+# on にすると、ハングアップしたときにscreenは自動的にデタッチされます。
+# off の場合は、ハングアップすると実行中の全プロセスは強制終了されます。
+autodetach on
+
+# ステータスライン
+backtick 0 600 1 battery-remain
+hardstatus alwayslastline "[%02c/%`] %-w%{=b bw}%n %t%{-}%+w %= %?%{=brw}%2`%{-} %?%1`"
+# 最初の権利表示とかしない
+startup_message off
+# スクロールバッファ
+defscrollback 4000
+# lessとかを終了したあとに画面の状態を戻す
+altscreen on
+# ビジュアルベルを無効
+vbell off
+# 非アクティブなウィンドウでベルが鳴ったらアクティブなウィンドウでも鳴らす
+bell_msg "Bell in window %"
+
+# ウィンドウ分割時のリサイズショートカット
+bind r eval 'echo "Resize window"' 'command -c resize'
+bind -c resize ^] command
+bind -c resize j eval 'resize +1' 'command -c resize'
+bind -c resize k eval 'resize -1' 'command -c resize'
