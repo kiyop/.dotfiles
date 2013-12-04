@@ -288,6 +288,19 @@ let php_folding = 1 " クラスと関数の折りたたみ(folding)を有効に�
 
 let perl_fold=1 " Perlも折りたたみ
 
+
+" ------------------------------
+" OS 別の設定 (CUI / GUI 共通)
+if has('win32')
+    " Windows 向け
+elseif has('mac')
+    " Mac OSX 向け
+    command! Marked :!open -a Marked "%"
+else
+    " それ以外 Linux / Unix 系
+endif
+
+
 " ------------------------------
 " 以下、関数定義
 " 自動更新
