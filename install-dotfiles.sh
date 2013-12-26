@@ -18,7 +18,7 @@ install_dotfiles() {
         mkdir -p "${DST}/bin"
     fi
     for TRG in ${TRGS[@]}; do
-        ln ${FORCE} -s "${SRC}/${TRG}" "${DST}/${TRG}"
+        ln ${FORCE} -sn "${SRC}/${TRG}" "${DST}/${TRG}"
     done
     echo "The Installation is complete. Please login again."
     exit
