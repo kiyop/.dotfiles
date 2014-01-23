@@ -1,10 +1,14 @@
-[user]
+[include]
+	path = .gitconfig.local
+#[user]
+#	name = ***
+#	email = ***@***.***
 [core]
 	autocrlf = false
 	quotepath = false
 	precomposeunicode = true
 [alias]
-    #tree = log --graph --all --format=\"%x09%C(cyan bold)%an%Creset%x09%C(yellow)%h%Creset %C(magenta reverse)%d%Creset %s\"
+	#tree = log --graph --all --format=\"%x09%C(cyan bold)%an%Creset%x09%C(yellow)%h%Creset %C(magenta reverse)%d%Creset %s\"
 	tree = log --graph --pretty='format:%C(yellow)%h%Creset %s %Cgreen(%an)%Creset %Cred%d%Creset'
 [difftool "Kaleidoscope"]
 	cmd = ksdiff --partial-changeset --relative-path \"$MERGED\" -- \"$LOCAL\" \"$REMOTE\"
