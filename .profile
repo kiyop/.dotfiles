@@ -23,6 +23,8 @@ if [ `uname` = "Darwin" ]; then
     beep-on-error() { "$@" || beep; }
     alias phpunit='beep-at-finished phpunit'
     alias behat='beep-at-finished behat'
+    # tar でリソースフォーク (`._`で始まるファイル) を含めないようにする
+    export COPYFILE_DISABLE=1
 else
     alias ll='ls -la --color'
     alias less='/usr/share/vim/vim73/macros/less.sh'
