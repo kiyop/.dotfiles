@@ -1,6 +1,7 @@
 # .profile
 export PATH=$HOME/bin:/usr/local/bin:/usr/local/sbin:$PATH
 export LANG=ja_JP.UTF-8
+export IGNOREEOF=10
 
 alias beep='bash -c "echo -ne \"\\a\""'
 alias cp='cp -i'

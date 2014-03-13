@@ -1,10 +1,9 @@
 # .zshrc
-export LANG=ja_JP.UTF-8
-
 if [ -f $HOME/.profile ]; then
     source $HOME/.profile
 fi
 
+setopt IGNOREEOF
 bindkey -e
 bindkey "^?"    backward-delete-char
 bindkey "^H"    backward-delete-char
