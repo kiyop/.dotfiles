@@ -58,16 +58,23 @@ memcache-cli() {
 alias memcache-stats='memcache-cli stats'
 alias memcache-reset='memcache-cli flush_all'
 
+hr() { local s l; if [ $# -ge 1 ]; then s="$1"; else s="-"; fi; for i in $(seq 1 $COLUMNS); do l="$s$l"; done; echo "$l"; }
 git-checkout-all-branches() {
-    for i in `git branch -r|grep -v HEAD|grep -v master|sed 's:origin/::g'`
-    do
-        git checkout --track -b $i origin/$i
+    case $# in
+        1) REPO=$1 ;;
+        *) echo "usage: $0 <repository>"; return 1 ;;
+    esac
+    if [ -z $(git remote|grep -e "^${REPO}$") ]; then echo "Cannot found repository: ${REPO}"; return 1; fi
+    git fetch ${REPO}
+    for i in $(git branch -r|awk '{print $1}'|grep -e "^${REPO}"|grep -v "^${REPO}/HEAD$"|sed "s:${REPO}/::g"); do
+        git checkout --track -b $i $REPO/$i
+        git pull --rebase
     done
     git checkout master
 }
 git-status-all-directories() {
     case $# in
-        1) CD=$(pwd); for d in $(find "$1" -follow -type d); do if [ -e $d/.git ]; then echo; echo $d; cd $d; git status; cd $CD; fi; done ;;
+        1) CD=$(pwd); for d in $(find "$1" -follow -type d); do if [ -e $d/.git ]; then echo; echo "# $d"; cd $d; git status; cd $CD; fi; done ;;
         *) echo "usage: $0 <directory>"; return 1 ;;
     esac
 }
