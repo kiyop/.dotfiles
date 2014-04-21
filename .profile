@@ -74,7 +74,7 @@ git-checkout-all-branches() {
 }
 git-status-all-directories() {
     case $# in
-        1) CD=$(pwd); for d in $(find "$1" -follow -type d); do if [ -e $d/.git ]; then echo; echo "# $d"; cd $d; git status; cd $CD; fi; done ;;
+        1) CD=$(pwd); for d in $(find "$1" -follow -type d); do if [ -e $d/.git ]; then echo; echo "## $d"; cd $d; git status --branch --short; cd $CD; fi; done ;;
         *) echo "usage: $0 <directory>"; return 1 ;;
     esac
 }
