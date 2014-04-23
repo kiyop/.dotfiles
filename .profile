@@ -15,6 +15,7 @@ if [ `uname` = "Darwin" ]; then
     alias vim='/Applications/MacVim.app/Contents/MacOS/Vim'
     alias gvim='/Applications/MacVim.app/Contents/MacOS/mvim --remote-tab-silent'
     alias less='/Applications/MacVim.app/Contents/Resources/vim/runtime/macros/less.sh'
+    pbcopy-chomp() { read -rd '' s; echo -n "$s" | pbcopy; }
     # QuickLook
     alias ql='qlmanage -p "$1" >& /dev/null'
     # 画像サイズ取得
