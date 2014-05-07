@@ -96,6 +96,7 @@ set backspace=2  " バックスペースを強く
 set backspace=indent,eol,start "BSでなんでも消せるようにする
 set helpfile=$VIMRUNTIME/doc/help.txt " Help File
 set hidden " バッファ切り替え時のundoの効果持続、バッファが編集中でも他ファイルを開ける等
+set noundofile " undo ファイルは作らない
 set autoread " 外部のエディタで編集中のファイルが変更されたら自動で読み直す
 set formatoptions+=mM "整形オプションにマルチバイト系を追加
 " 前回終了したカーソル行に移動
