@@ -1,14 +1,14 @@
 #!/bin/bash
 if [ "$__BASH__" != on ]; then __BASH__=on bash $0 "$@"; exit; fi
 SRC=$(cd $(dirname $0);pwd)
-DST=~
+DST=$HOME
 TRGS=($(find ${SRC} ${SRC}/bin -maxdepth 1 -mindepth 1 | grep -vE "$(basename ${0})$|.git$|.gitignore$|README.md$|bin$" | sed "s!^${SRC}/!!"))
 
 install_dotfiles() {
     if [ -z "${FORCE}" ]; then
         for TRG in ${TRGS[@]}; do
             if [ -e "${DST}/${TRG}" ]; then
-                echo "File already exists. Use \``basename $0` -f\`"; exit 1
+                echo "Some dot-files already exists. Try \``basename $0` -f\`"; exit 1
             fi
         done
     fi

@@ -5,8 +5,8 @@ Dot Files
 
 ~~~sh
 cd ~
-git clone https://bitbucket.org/kiyop/.dotfiles.git
-sh .dotfiles/install-dotfiles.sh
+git clone --recursive <REPOSITORY_URL>
+sh dotfiles/install-dotfiles.sh
 ~~~
 
 And login again. Enjoy!
