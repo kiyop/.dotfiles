@@ -47,3 +47,6 @@ RPROMPT="%1(v|%F{green}%1v%f|)"
 # もしかして機能
 setopt correct
 SPROMPT=$'%{\e[33m%}(*\'~\'%)? .｡oO( もしかして%{\e[m%} %U%B%r%b%u %{\e[33m%}かも? [そう!(y),ちがう!(n),a,e]:%{\e[m%} '
+
+# Google Cloud SDK
+source $GOOGLE_CLOUD_SDK/completion.zsh.inc

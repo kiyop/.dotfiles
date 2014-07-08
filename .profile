@@ -89,3 +89,19 @@ if type lv > /dev/null 2>&1; then
 fi
 #export CACA_DRIVER=x11
 export CACA_DRIVER=ncurses
+
+# Go Programing Language (via GVM)
+if [ -s $HOME/.gvm/scripts/gvm ]; then
+    export GO_VERSION=go1.3
+    export GVM_PKGSET=local
+    source $HOME/.gvm/scripts/gvm
+    gvm use $GO_VERSION
+    gvm pkgset create $GVM_PKGSET
+    gvm pkgset use $GVM_PKGSET
+fi
+# Google Cloud SDK
+export GOOGLE_CLOUD_SDK=$HOME/google-cloud-sdk
+if [ -d $GOOGLE_CLOUD_SDK ]; then
+    export APPENGINE_DEV_APPSERVER=$GOOGLE_CLOUD_SDK/platform/google_appengine
+    export PATH=$GOOGLE_CLOUD_SDK/bin:$APPENGINE_DEV_APPSERVER:$PATH
+fi

@@ -289,6 +289,11 @@ let php_folding = 1 " クラスと関数の折りたたみ(folding)を有効に�
 
 let perl_fold=1 " Perlも折りたたみ
 
+" for Go Programing Language
+let g:gofmt_command = 'goimports' " :Fmt などで gofmt の代わりに goimports を使う
+au BufWritePre *.go Fmt " 保存時に :Fmt する
+au BufNewFile,BufRead *.go set sw=4 noexpandtab ts=4
+au FileType go compiler go
 
 " ------------------------------
 " OS 別の設定 (CUI / GUI 共通)
