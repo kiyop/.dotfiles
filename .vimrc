@@ -301,7 +301,7 @@ if has('win32')
     " Windows 向け
 elseif has('mac')
     " Mac OSX 向け
-    command! Marked :!open -a Marked "%"
+    command! Marked :!open -a "Marked 2" "%"
 else
     " それ以外 Linux / Unix 系
 endif
