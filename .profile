@@ -17,6 +17,7 @@ if [ `uname` = "Darwin" ]; then
     alias less='/Applications/MacVim.app/Contents/Resources/vim/runtime/macros/less.sh'
     alias eclipse='open /Applications/eclipse/Eclipse.app'
     pbcopy-chomp() { read -rd '' s; echo -n "$s" | pbcopy; }
+    pbcopy-file() { cat "$1" | pbcopy-chomp; }
     # QuickLook
     alias ql='qlmanage -p "$1" >& /dev/null'
     # 画像サイズ取得
