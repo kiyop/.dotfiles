@@ -16,6 +16,7 @@ if [ `uname` = "Darwin" ]; then
     alias gvim='/Applications/MacVim.app/Contents/MacOS/mvim --remote-tab-silent'
     alias less='/Applications/MacVim.app/Contents/Resources/vim/runtime/macros/less.sh'
     alias eclipse='open /Applications/eclipse/Eclipse.app'
+    alias md='open -a "Marked 2"'
     pbcopy-chomp() { read -rd '' s; echo -n "$s" | pbcopy; }
     pbcopy-file() { cat "$1" | pbcopy-chomp; }
     # QuickLook
