@@ -1,0 +1,50 @@
+#!/bin/bash
+set -e
+case $# in
+    1) DST=$1 ;;
+    *) echo "usage: $0 <xz_archive_file_path>"; exit 1 ;;
+esac
+
+check_file() {
+    if [[ ! -e $1 ]]; then
+        echo "File not find: $1"; exit 1
+    fi
+}
+
+check_file ~/Desktop/eclipse_conf.epf
+check_file /Applications/eclipse
+check_file ~/.eclipse
+check_file ~/android-ndk-r8e
+check_file ~/android-ndk-r9
+check_file ~/android-sdk-macosx
+check_file ~/google-cloud-sdk
+check_file ~/Documents/workspace
+
+PWD=$(pwd)
+TMP_DIR=/tmp
+TMP=eclipse_bak_$RANDOM
+
+cd $TMP_DIR
+
+mkdir $TMP
+cp -Rpv ~/Desktop/eclipse_conf.epf $TMP
+
+mkdir $TMP/Applications
+cp -Rpv /Applications/eclipse $TMP/Applications
+
+mkdir $TMP/Users
+cp -Rpv ~/.eclipse $TMP/Users
+cp -Rpv ~/android-ndk-r8e $TMP/Users
+cp -Rpv ~/android-ndk-r9 $TMP/Users
+cp -Rpv ~/android-sdk-macosx $TMP/Users
+cp -Rpv ~/google-cloud-sdk $TMP/Users
+
+mkdir $TMP/Users/Documents
+cp -Rpv ~/Documents/workspace $TMP/Users/Documents
+
+tar cvJf $TMP.tar.xz $TMP
+rm -rf $TMP
+
+cd "$PWD"
+mv $TMP_DIR/$TMP.tar.xz "$DST"
+
