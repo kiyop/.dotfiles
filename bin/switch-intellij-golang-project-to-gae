@@ -1,0 +1,8 @@
+#!/bin/bash
+set -e
+case $# in
+    1) TRG=$1 ;;
+    *) echo "usage: $0 <iml_file_path>"; exit 1 ;;
+esac
+
+sed -i "" -e "s/GO_MODULE/GO_APP_ENGINE_MODULE/g" "$TRG"
