@@ -1,0 +1,3 @@
+#!/bin/sh
+if [[ "$1" == *.go ]]; then goimports -w "$1"; fi
+if [[ -d "$1" ]]; then goimports -w "$1"; fi
