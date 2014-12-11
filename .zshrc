@@ -4,6 +4,7 @@ if [ -f $HOME/.profile ]; then
 fi
 
 setopt IGNOREEOF
+setopt noflowcontrol
 bindkey -e
 bindkey "^?"    backward-delete-char
 bindkey "^H"    backward-delete-char
@@ -22,10 +23,19 @@ compinit
 HISTFILE=~/.zsh_history        # 履歴をファイル保存する
 HISTSIZE=6000000               # メモリ上の履歴の数
 SAVEHIST=6000000               # ファイル保存される履歴の数
-setopt hist_ignore_dups        # 重複コマンドは履歴に残さない
+history-all() { history -E 1 } # 全履歴の一覧を出力する
+setopt hist_no_store           # historyコマンドは履歴に含めない
+setopt hist_ignore_dups        # 直前の重複コマンドを削除
+setopt hist_ignore_all_dups    # 重複コマンドは古い方を削除
+setopt hist_ignore_space       # スペースで始まるコマンド行は履歴に残さない (パスワードを含む場合等に使う)
+setopt hist_reduce_blanks      # 余分な空白は詰める
 setopt share_history           # 履歴の共有
 setopt extended_history        # 履歴ファイルに時刻を記録
-history-all() { history -E 1 } # 全履歴の一覧を出力する
+setopt hist_verify             # 履歴を呼び出してから実行までに一旦編集可能
+setopt hist_expand             # 補完時にヒストリを自動的に展開
+setopt inc_append_history      # 履歴をインクリメンタルに追加
+bindkey "^S" history-incremental-search-forward  # インクリメンタル検索 (前方検索)
+bindkey "^R" history-incremental-search-backward # インクリメンタル検索 (後方検索)
 
 # 左プロンプト
 setopt prompt_subst
