@@ -23,11 +23,13 @@ if [ `uname` = "Darwin" ]; then
     alias ql='qlmanage -p "$1" >& /dev/null'
     # 画像サイズ取得
     alias imgsize="mdls -name kMDItemPixelWidth -name kMDItemPixelHeight"
-    # Macでは時間のかかるコマンドが終了したらDockでバウンドさせる
+    # 時間のかかるコマンドが終了したらDockでバウンドさせる
     beep-at-finished() { "$@"; beep; }
     beep-on-error() { "$@" || beep; }
     alias phpunit='beep-at-finished phpunit'
     alias behat='beep-at-finished behat'
+    # コマンド結果を通知センターに送る
+    ntf() { if "$@"; then T="(*'-') < Successful !!"; else T="( >_<)? < Failed..."; fi; echo "display notification \"$@\" with title \"$T\""|osascript }
     # tar でリソースフォーク (`._`で始まるファイル) を含めないようにする
     export COPYFILE_DISABLE=1
 else
