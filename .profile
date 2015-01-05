@@ -85,6 +85,7 @@ git-status-all-directories() {
     esac
 }
 export PAGER=less
+export MANPAGER='col -b -x|vim -R -c "set ft=man nolist nomod noma" -'
 export GIT_PAGER=less
 export GIT_EDITOR=vim
 export SVN_EDITOR=vim
