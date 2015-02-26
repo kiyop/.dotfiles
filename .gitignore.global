@@ -5,3 +5,24 @@ Thumbs.db
 ._.*
 *.swp
 *~
+#--------
+# Eclipse
+.project
+.cproject
+.classpath
+.buildpath
+.metadata
+.gradle
+.settings/
+local.properties
+#--------
+# Eclipse (golang project)
+bin/
+pkg/
+#--------
+# IntelliJ IDEA
+.idea/
+*.ipr
+*.iml
+*.iws
+out/
