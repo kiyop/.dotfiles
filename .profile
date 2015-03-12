@@ -7,6 +7,7 @@ alias beep='bash -c "echo -ne \"\\a\""'
 alias cp='cp -i'
 alias mv='mv -i'
 alias rm='rm -i'
+alias gip='curl ipcheck.ieserver.net' # グローバル IP を調べる (要 curl)
 # mkdir and cd
 mkdircd() { mkdir -p "$@" && eval cd "\"\$$#\""; }
 if [ `uname` = "Darwin" ]; then
