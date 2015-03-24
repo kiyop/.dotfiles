@@ -108,8 +108,8 @@ fi
 # Google Cloud SDK
 export GOOGLE_CLOUD_SDK=$HOME/google-cloud-sdk
 if [ -d $GOOGLE_CLOUD_SDK ]; then
-    export APPENGINE_PATH=$GOOGLE_CLOUD_SDK/platform/google_appengine
-    export APPENGINE_APP_CFG=$APPENGINE_PATH/appcfg.py
-    export APPENGINE_DEV_APPSERVER=$APPENGINE_PATH/dev_appserver.py
-    export PATH=$GOOGLE_CLOUD_SDK/bin:$APPENGINE_PATH:$PATH
+    export APPENGINE_SDK=$GOOGLE_CLOUD_SDK/platform/google_appengine
+    export APPENGINE_APP_CFG=$GOOGLE_CLOUD_SDK/bin/appcfg.py
+    export APPENGINE_DEV_APPSERVER=$GOOGLE_CLOUD_SDK/bin/dev_appserver.py
+    export PATH=$GOOGLE_CLOUD_SDK/bin:$PATH
 fi
