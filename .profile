@@ -35,7 +35,7 @@ if [ `uname` = "Darwin" ]; then
     export COPYFILE_DISABLE=1
 else
     alias ll='ls -la --color'
-    alias less='/usr/share/vim/vim73/macros/less.sh'
+    alias less='/usr/share/vim/vim74/macros/less.sh'
 fi
 
 alias top='screen -t top top'

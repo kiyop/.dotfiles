@@ -1,8 +1,9 @@
 # 起動時にウィンドウサイズが変更されるのを抑制
 #termcapinfo xterm 'is=\E[r\E[m\E[2J\E[H\E[?7h\E[?1;4;6l'
 #termcapinfo xterm-256color 'is=\E[r\E[m\E[2J\E[H\E[?7h\E[?1;4;6l'
-term xterm-256color
+term screen-256color
 termcapinfo xterm-256color 'is=^[r^[m^[2J^[H^[?7h^[?1;4;6l'
+termcapinfo xterm 'is=\E[r\E[m\E[2J\E[H\E[?7h\E[?1;4;6l'
 
 # Mac でマウスホイールでスクロールできるようにする
 termcapinfo xterm* ti@:te@

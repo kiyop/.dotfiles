@@ -6,7 +6,7 @@ fi
 setopt ignore_eof    # Ctrl+Dでログアウトしないようにする
 setopt IGNOREEOF
 setopt noflowcontrol # Ctrl+S, Ctrl+Q でのフロー制御を無効
-bindkey -v
+#bindkey -v
 bindkey "^?"    backward-delete-char
 bindkey "^H"    backward-delete-char
 bindkey "[3~" delete-char
@@ -79,4 +79,11 @@ setopt correct
 SPROMPT=$'%{\e[33m%}(*\'~\'%)? .｡oO( もしかして%{\e[m%} %U%B%r%b%u %{\e[33m%}かも? [そう!(y),ちがう!(n),a,e]:%{\e[m%} '
 
 # Google Cloud SDK
-source $GOOGLE_CLOUD_SDK/completion.zsh.inc
+if [ -d $GOOGLE_CLOUD_SDK ]; then
+    source $GOOGLE_CLOUD_SDK/completion.zsh.inc
+fi
+
+# 最後に GNU screen を立ち上げる
+if [ "$TERM" != 'screen' -a "$TERM" != 'dumb' ]; then
+  [ `which screen 2>/dev/null` ] && screen -rx || screen -D -RR
+fi
