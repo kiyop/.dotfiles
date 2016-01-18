@@ -53,6 +53,12 @@ ssh-on-screen() { eval SERVER=\${$#}; screen -t $SERVER ssh "$@"; }
   alias ssh=ssh-on-screen
 #fi
 
+if [[ -x `which colordiff` ]]; then
+  alias diff='colordiff -u'
+else
+  alias diff='diff -u'
+fi
+
 memcache-cli() {
     #bash -c "echo -e \"$1\\nquit\"" | curl -s -T - telnet://localhost:11211;
     case $# in
