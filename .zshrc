@@ -84,6 +84,6 @@ if [ -d $GOOGLE_CLOUD_SDK ]; then
 fi
 
 # 最後に GNU screen を立ち上げる
-if [ "$TERM" != 'screen' -a "$TERM" != 'dumb' ]; then
-  [ `which screen 2>/dev/null` ] && screen -rx || screen -D -RR
+if [ "$TERM" != 'screen' -a "$TERM" != 'screen-256color' -a "$TERM" != 'dumb' ]; then
+  [ `which screen 2>/dev/null` ] && screen -xRU || screen -D -RR -U
 fi
