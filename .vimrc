@@ -1,3 +1,10 @@
+" ユーザごとのプラグインの場所
+if has('win32')
+    let $DIR_ADD_ON = $VIMRUNTIME . "/../_vim/"
+else
+    let $DIR_ADD_ON = $HOME . "/.vim/"
+endif
+
 " 文字コードの設定
 "set encoding=utf-8 " 端末の文字コード
 "set fileencoding=utf-8 " ファイルの文字コード
@@ -58,6 +65,8 @@ if exists('&ambiwidth')
 endif
 " BOM使わない
 set nobomb
+" ファイル末尾に改行を自動で付けない
+set binary noeol
 
 " いろいろ基本設定
 syntax on
@@ -255,7 +264,7 @@ autocmd FileType markdown set tabstop=4 shiftwidth=4 softtabstop=0
 autocmd FileType * set textwidth=0
 
 " PhpDoc用設定
-source $HOME/.vim/php-doc.vim
+source $DIR_ADD_ON/php-doc.vim
 set formatoptions=qroct
 let g:date = strftime("%Y/%m/%d")
 let g:author = "k2"
@@ -277,7 +286,7 @@ map! =prop <ESC>:call InsertPropertyDoc(1)<CR>
 source $VIMRUNTIME/macros/matchit.vim
 
 " vimプロセス間でレジスタ（yank）を共有する
-source $HOME/.vim/yanktmp.vim
+source $DIR_ADD_ON/yanktmp.vim
 map sy :call YanktmpYank()<CR>
 map sp :call YanktmpPaste_p()<CR>
 map sP :call YanktmpPaste_P()<CR>
