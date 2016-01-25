@@ -30,7 +30,7 @@ if [ `uname` = "Darwin" ]; then
     alias phpunit='beep-at-finished phpunit'
     alias behat='beep-at-finished behat'
     # コマンド結果を通知センターに送る
-    ntf() { if "$@"; then local t="(*'-') < Successful !!"; else t="( >_<)? < Failed..."; fi; echo "display notification \"$@\" with title \"$t\""|osascript }
+    ntf() { if "$@"; then local t="(*'-') < Successful !!"; else t="( >_<)? < Failed..."; fi; echo "display notification \"$@\" with title \"$t\""|osascript; }
     # tar でリソースフォーク (`._`で始まるファイル) を含めないようにする
     export COPYFILE_DISABLE=1
 else

@@ -3,4 +3,6 @@ if [ -f ~/.profile ]; then
 fi
 
 # Google Cloud SDK
-source $GOOGLE_CLOUD_SDK/completion.bash.inc
+if [ -d $GOOGLE_CLOUD_SDK ]; then
+    source $GOOGLE_CLOUD_SDK/completion.bash.inc
+fi
