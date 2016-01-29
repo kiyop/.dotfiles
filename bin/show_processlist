@@ -1,0 +1,15 @@
+#!/bin/bash
+# MySQL のプロセス（実行中のクエリ）を表示する
+
+err() { echo "$@" >&2; exit 1; }
+if [ -z "${MYSQL_PWD-}" ]; then
+    err "環境変数 MYSQL_PWD に MySQL の root ユーザーのパスワードを設定してください"
+fi
+
+CMD="/usr/local/mysql/bin/mysql"
+if [ "$1" = "-f" ]; then
+    SQL="SHOW FULL PROCESSLIST;"
+else
+    SQL="SHOW PROCESSLIST;"
+fi
+"${CMD}" -uroot -e "${SQL}"
