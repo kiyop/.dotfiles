@@ -5,7 +5,7 @@
 	autocrlf = false
 	quotepath = false
 	precomposeunicode = true
-	excludesfile = ~/.gitignore.global
+	excludesfile = ~/.gitignore_global
 [alias]
 	#tree = log --graph --all --format=\"%x09%C(cyan bold)%an%Creset%x09%C(yellow)%h%Creset %C(magenta reverse)%d%Creset %s\"
 	tree = log --graph --pretty='format:%C(yellow)%h%Creset %s %Cgreen(%an)%Creset %Cred%d%Creset'
@@ -25,6 +25,6 @@
 [merge]
 	tool = Kaleidoscope
 [include]
-	path = ~/.gitconfig.local
+	path = ~/.gitconfig_local
 [init]
 	templatedir = ~/.git_template
