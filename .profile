@@ -1,4 +1,8 @@
 # .profile
+if [ -f $HOME/.profile_local ]; then
+    source $HOME/.profile_local
+fi
+
 export PATH=$HOME/bin:/usr/local/bin:/usr/local/sbin:$PATH
 export LANG=ja_JP.UTF-8
 export IGNOREEOF=10
