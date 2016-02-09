@@ -6,7 +6,8 @@ Dot Files
 ~~~sh
 $ cd ~
 $ git clone --recursive <REPOSITORY_URL>
-$ ./dotfiles/install.sh
+$ ./.dotfiles/install.sh
 ~~~
 
 And login again. Enjoy!
+
