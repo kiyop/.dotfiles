@@ -114,7 +114,7 @@ export CACA_DRIVER=ncurses
 
 # Go Programing Language (via GVM)
 if [ -s $HOME/.gvm/scripts/gvm ]; then
-    export GO_VERSION=go1.3
+    export GO_VERSION=go1.5
     export GVM_PKGSET=local
     source $HOME/.gvm/scripts/gvm
     gvm use $GO_VERSION
