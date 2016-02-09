@@ -37,6 +37,12 @@ if [ `uname` = "Darwin" ]; then
     ntf() { if "$@"; then local t="(*'-') < Successful !!"; else t="( >_<)? < Failed..."; fi; echo "display notification \"$@\" with title \"$t\""|osascript; }
     # tar でリソースフォーク (`._`で始まるファイル) を含めないようにする
     export COPYFILE_DISABLE=1
+
+    # MacPorts
+    if [ -d "/opt/local" ]; then
+        export PATH=/opt/local/bin:/opt/local/sbin:$PATH
+        export MANPATH=/opt/local/share/man:$MANPATH
+    fi
 else
     alias ll='ls -la --color'
     alias less='/usr/share/vim/vim74/macros/less.sh'
