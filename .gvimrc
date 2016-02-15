@@ -15,6 +15,7 @@ set guioptions-=T " ツールバー表示しない
 " 環境別設定
 if has('win32')
     " Windows用
+    winpos 1000 25
     set encoding=utf-8 " 端末の文字コード
     set guifont=MS_Gothic:h8:cSHIFTJIS
     set linespace=1 " 行間隔

@@ -1,6 +1,6 @@
 " ユーザごとのプラグインの場所
 if has('win32')
-    let $DIR_ADD_ON = $VIMRUNTIME . "/../_vim/"
+    let $DIR_ADD_ON = $HOME . "/_vim/"
 else
     let $DIR_ADD_ON = $HOME . "/.vim/"
 endif
@@ -66,7 +66,8 @@ endif
 " BOM使わない
 set nobomb
 " ファイル末尾に改行を自動で付けない
-set binary noeol
+"set binary noeol
+"set noeol
 
 " いろいろ基本設定
 syntax on
@@ -215,6 +216,7 @@ nmap <Space>d :bd<CR> " バッファ削除
 " 前に1行挿入
 nmap <C-S-O> <S-O><Esc>
 imap <C-S-O> <Esc><S-O>
+imap <C-CR> <Esc><S-O>
 " 文字コード/改行コードの簡易変更
 "nmap <Space><C-U> :e ++encoding=utf-8<CR>
 "nmap <Space><C-E> :e ++encoding=euc-jp<CR>
@@ -257,6 +259,7 @@ autocmd! BufRead,BufNewFile *.md set filetype=markdown
 autocmd! BufRead,BufNewFile *.markdown.txt set filetype=markdown
 autocmd FileType php set makeprg=php\ -l\ %
 autocmd FileType php set errorformat=%m\ in\ %f\ on\ line\ %l
+autocmd FileType php set tabstop=4 shiftwidth=4 softtabstop=0
 autocmd FileType javascript set tabstop=2 shiftwidth=2 softtabstop=0
 autocmd FileType html set tabstop=2 shiftwidth=2 softtabstop=0
 autocmd FileType markdown set tabstop=4 shiftwidth=4 softtabstop=0
