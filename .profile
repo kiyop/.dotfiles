@@ -113,13 +113,14 @@ fi
 export CACA_DRIVER=ncurses
 
 # Go Programing Language (via GVM)
-if [ -s $HOME/.gvm/scripts/gvm ]; then
+export GVM_DIR="${HOME}/.gvm"
+if [ -s "${GVM_DIR}/scripts/gvm" ]; then
     export GO_VERSION=go1.5
     export GVM_PKGSET=local
-    source $HOME/.gvm/scripts/gvm
-    gvm use $GO_VERSION
-    gvm pkgset create $GVM_PKGSET
-    gvm pkgset use $GVM_PKGSET
+    source "${GVM_DIR}/scripts/gvm"
+    gvm use "${GO_VERSION}"
+    [ -z $(gvm pkgset list | grep "${GVM_PKGSET}") ] && gvm pkgset create "${GVM_PKGSET}"
+    gvm pkgset use "${GVM_PKGSET}"
 fi
 # Google Cloud SDK
 export GOOGLE_CLOUD_SDK=$HOME/google-cloud-sdk
