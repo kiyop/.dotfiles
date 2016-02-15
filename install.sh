@@ -2,7 +2,7 @@
 if [ "$__BASH__" != on ]; then __BASH__=on bash $0 "$@"; exit; fi
 SRC=$(cd $(dirname $0);pwd)
 DST=$HOME
-TRGS=($(find ${SRC} ${SRC}/bin -maxdepth 1 -mindepth 1 | grep -vE "$(basename ${0})$|.git$|.gitignore$|README.md$|bin$" | sed "s!^${SRC}/!!"))
+TRGS=($(find ${SRC} ${SRC}/bin -maxdepth 1 -mindepth 1 | grep -vE "$(basename ${0})$|.git$|.gitignore$|README.md$|install.bat$|bin$" | sed "s!^${SRC}/!!"))
 
 install_dotfiles() {
     if [ -z "${FORCE}" ]; then
@@ -20,7 +20,7 @@ install_dotfiles() {
     for TRG in ${TRGS[@]}; do
         ln ${FORCE} -sn "${SRC}/${TRG}" "${DST}/${TRG}"
     done
-    echo "The Installation is complete. Please login again."
+    echo "The installation is complete. Please login again."
     exit
 }
 
@@ -28,7 +28,7 @@ uninstall_dotfiles() {
     for TRG in ${TRGS[@]}; do
         rm -rf "${DST}/${TRG}"
     done
-    echo "The Uninstallation is complete."
+    echo "The uninstallation is complete."
     exit;
 }
 
