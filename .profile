@@ -122,6 +122,13 @@ if [ -s "${GVM_DIR}/scripts/gvm" ]; then
     [ -z $(gvm pkgset list | grep "${GVM_PKGSET}") ] && gvm pkgset create "${GVM_PKGSET}"
     gvm pkgset use "${GVM_PKGSET}"
 fi
+# Node.js (via NVM)
+export NVM_DIR="${HOME}/.nvm"
+if [ -s "${NVM_DIR}/nvm.sh" ]; then
+    export NODEJS_VERSION=v5.6.0
+    source "${NVM_DIR}/nvm.sh"
+    nvm use "${NODEJS_VERSION}"
+fi
 # Google Cloud SDK
 export GOOGLE_CLOUD_SDK=$HOME/google-cloud-sdk
 if [ -d $GOOGLE_CLOUD_SDK ]; then
