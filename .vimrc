@@ -66,7 +66,7 @@ endif
 " BOM使わない
 set nobomb
 " ファイル末尾に改行を自動で付けない
-"set binary noeol
+set binary noeol
 "set noeol
 
 " いろいろ基本設定
