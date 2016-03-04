@@ -14,6 +14,7 @@ if exist "%dst%"\.gitconfig if not exist "%dst%"\.gitconfig_local (
 )
 call :MAKE_SYMLINK "%dst%"\.gitconfig "%src%".gitconfig
 call :MAKE_SYMLINK "%dst%"\.gitignore_global "%src%".gitignore_global
+call :MAKE_SYMLINK /D "%dst%"\.git_template "%src%".git_template
 call :MAKE_SYMLINK "%dst%"\_vimrc "%src%".vimrc
 call :MAKE_SYMLINK "%dst%"\_gvimrc "%src%".gvimrc
 call :MAKE_SYMLINK /D "%dst%"\_vim "%src%".vim
