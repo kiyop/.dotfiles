@@ -3,7 +3,7 @@
 #	email = ***@***.***
 [core]
 	autocrlf = false
-	quotepath = false
+	quotepath = true
 	precomposeunicode = true
 	preloadindex = true
 	excludesfile = ~/.gitignore_global
