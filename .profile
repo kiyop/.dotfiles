@@ -113,6 +113,12 @@ fi
 #export CACA_DRIVER=x11
 export CACA_DRIVER=ncurses
 
+# Ruby (via rbenv)
+export RBENV_DIR="${HOME}/.rbenv"
+if [ -s "${RBENV_DIR}/bin/rbenv" ]; then
+    export PATH="$HOME/.rbenv/bin:$PATH"
+    eval "$(rbenv init -)"
+fi
 # Go Programing Language (via GVM)
 export GVM_DIR="${HOME}/.gvm"
 if [ -s "${GVM_DIR}/scripts/gvm" ]; then
@@ -126,9 +132,7 @@ fi
 # Node.js (via NVM)
 export NVM_DIR="${HOME}/.nvm"
 if [ -s "${NVM_DIR}/nvm.sh" ]; then
-    export NODEJS_VERSION=v5.6.0
     source "${NVM_DIR}/nvm.sh"
-    nvm use "${NODEJS_VERSION}"
 fi
 # Google Cloud SDK
 export GOOGLE_CLOUD_SDK=$HOME/google-cloud-sdk
