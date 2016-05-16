@@ -132,6 +132,9 @@ fi
 export NVM_DIR="${HOME}/.nvm"
 if [ -s "${NVM_DIR}/nvm.sh" ]; then
     source "${NVM_DIR}/nvm.sh"
+    if type -p ngrok &>/dev/null; then
+        alias ngrok='screen -t ngrok ngrok'
+    fi
 fi
 # Google Cloud SDK
 export GOOGLE_CLOUD_SDK=$HOME/google-cloud-sdk
@@ -141,3 +144,11 @@ if [ -d $GOOGLE_CLOUD_SDK ]; then
     export APPENGINE_DEV_APPSERVER=$GOOGLE_CLOUD_SDK/bin/dev_appserver.py
     export PATH=$GOOGLE_CLOUD_SDK/bin:$PATH
 fi
+# Docker (using docker-machine)
+if type -p docker-machine &>/dev/null; then
+    docker-machine-env() { eval "$(docker-machine env default)"; }
+    if [ -n "$(docker-machine ls --quiet --filter 'state=Running' --filter 'name=default')" ]; then
+        docker-machine-env
+    fi
+fi
+
