@@ -1,11 +1,10 @@
 # .profile
-if [ -f $HOME/.profile_local ]; then
-    source $HOME/.profile_local
-fi
-
 export PATH=$HOME/bin:/usr/local/bin:/usr/local/sbin:$PATH
 export LANG=ja_JP.UTF-8
 export IGNOREEOF=10
+if [ -f $HOME/.profile_local ]; then
+    source $HOME/.profile_local
+fi
 
 alias beep='bash -c "echo -ne \"\\a\""'
 alias cp='cp -i'
@@ -63,7 +62,7 @@ ssh-on-screen() { eval SERVER=\${$#}; screen -t $SERVER ssh "$@"; }
   alias ssh=ssh-on-screen
 #fi
 
-if [[ -x `which colordiff` ]]; then
+if type -p colordiff &>/dev/null; then
   alias diff='colordiff -u'
 else
   alias diff='diff -u'
