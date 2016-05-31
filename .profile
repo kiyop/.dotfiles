@@ -48,7 +48,7 @@ else
 fi
 
 alias top='screen -t top top'
-alias grep='grep --color=auto'
+alias grep='grep --color=auto --exclude-dir=.git'
 alias tailf='screen -t tailf tail -f'
 alias redis-cli='screen -t redis redis-cli'
 alias eq='screen -t earthquake earthquake'
