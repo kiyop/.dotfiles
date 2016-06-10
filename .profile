@@ -102,7 +102,7 @@ git-status-all-directories() {
 }
 export PAGER=less
 export MANPAGER='col -b -x|vim -R -c "set ft=man nolist nomod noma" -'
-alias aws='env --unset MANPAGER aws'
+alias aws='env -u MANPAGER aws'
 export GIT_PAGER=less
 export GIT_EDITOR=vim
 export SVN_EDITOR=vim
