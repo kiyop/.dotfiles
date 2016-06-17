@@ -132,9 +132,9 @@ fi
 export NVM_DIR="${HOME}/.nvm"
 if [ -s "${NVM_DIR}/nvm.sh" ]; then
     source "${NVM_DIR}/nvm.sh"
-    if type -p ngrok &>/dev/null; then
-        alias ngrok='screen -t ngrok ngrok'
-    fi
+    #if type -p ngrok &>/dev/null; then
+    #    alias ngrok='screen -t ngrok ngrok'
+    #fi
 fi
 # Google Cloud SDK
 export GOOGLE_CLOUD_SDK=$HOME/google-cloud-sdk

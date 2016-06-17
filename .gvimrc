@@ -27,7 +27,7 @@ if has('win32')
     set directory=$TEMP
     set clipboard=unnamed "ヤンクしたらクリップボードにも送る
 elseif has('gui_macvim')
-    winpos 10 25
+    winpos 15 25
     "set guifont=Osaka-Mono:h9
     "set guifont=Monaco:h10
     "set guifont=Monaco:h10
