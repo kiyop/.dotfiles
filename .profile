@@ -122,7 +122,7 @@ fi
 # Go Programing Language (via GVM)
 export GVM_DIR="${HOME}/.gvm"
 if [ -s "${GVM_DIR}/scripts/gvm" ]; then
-    export GO_VERSION=go1.6.3
+    export GO_VERSION=go1.7.3
     export GVM_PKGSET=local
     source "${GVM_DIR}/scripts/gvm"
     gvm use "${GO_VERSION}"
