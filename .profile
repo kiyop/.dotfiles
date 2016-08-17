@@ -67,6 +67,7 @@ if type -p colordiff &>/dev/null; then
 else
   alias diff='diff -u'
 fi
+type -p tree &>/dev/null && alias tree='tree -aNC -I ".git"'
 
 memcache-cli() {
     #bash -c "echo -e \"$1\\nquit\"" | curl -s -T - telnet://localhost:11211;
