@@ -116,7 +116,7 @@ export CACA_DRIVER=ncurses
 # Ruby (via rbenv)
 export RBENV_DIR="${HOME}/.rbenv"
 if [ -s "${RBENV_DIR}/bin/rbenv" ]; then
-    export PATH="$HOME/.rbenv/bin:$PATH"
+    export PATH="${HOME}/.rbenv/bin:${PATH}"
     eval "$(rbenv init -)"
 fi
 # Go Programing Language (via GVM)
@@ -136,6 +136,12 @@ if [ -s "${NVM_DIR}/nvm.sh" ]; then
     #if type -p ngrok &>/dev/null; then
     #    alias ngrok='screen -t ngrok ngrok'
     #fi
+fi
+# Python (via pyenv)
+export PYENV_ROOT="${HOME}/.pyenv"
+if [ -s "${PYENV_ROOT}/bin/pyenv" ]; then
+    export PATH="${PYENV_ROOT}/bin:${PATH}"
+    eval "$(pyenv init -)"
 fi
 # Google Cloud SDK
 export GOOGLE_CLOUD_SDK=$HOME/google-cloud-sdk
