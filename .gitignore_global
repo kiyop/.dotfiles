@@ -26,3 +26,6 @@ pkg/
 *.iml
 *.iws
 out/
+#--------
+# Visual Studio Code
+.vscode/
