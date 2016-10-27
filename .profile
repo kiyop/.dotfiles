@@ -137,6 +137,11 @@ if [ -s "${NVM_DIR}/nvm.sh" ]; then
     #    alias ngrok='screen -t ngrok ngrok'
     #fi
 fi
+# yarn (npm alternative)
+export YARN_ROOT="${HOME}/.yarn"
+if [ -s "${YARN_ROOT}/bin" ]; then
+    export PATH="${YARN_ROOT}/bin:$PATH"
+fi
 # Python (via pyenv)
 export PYENV_ROOT="${HOME}/.pyenv"
 if [ -s "${PYENV_ROOT}/bin/pyenv" ]; then
