@@ -149,6 +149,14 @@ if [ -s "${PYENV_ROOT}/bin/pyenv" ]; then
     export PATH="${PYENV_ROOT}/bin:${PATH}"
     eval "$(pyenv init -)"
 fi
+# Erlang/OTP (via kerl)
+# git clone git@github.com:kerl/kerl.git ~/.kerl/bin
+export KERL_ROOT="${HOME}/.kerl"
+if [ -s "${KERL_ROOT}/bin/kerl" ]; then
+    export PATH="${KERL_ROOT}/bin:${PATH}"
+    export ERLANG_VERSION=19.2
+    [ -d "${KERL_ROOT}/installations/${ERLANG_VERSION}" ] && source "${KERL_ROOT}/installations/${ERLANG_VERSION}/activate"
+fi
 # Google Cloud SDK
 export GOOGLE_CLOUD_SDK=$HOME/google-cloud-sdk
 if [ -d $GOOGLE_CLOUD_SDK ]; then

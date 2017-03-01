@@ -3,6 +3,11 @@ if [ -f $HOME/.profile ]; then
     source $HOME/.profile
 fi
 
+# kerl
+if [ -d "${KERL_ROOT}/bin/zsh_completion" ]; then
+    fpath=($fpath "${KERL_ROOT}/bin/zsh_completion")
+fi
+
 setopt ignore_eof    # Ctrl+Dでログアウトしないようにする
 setopt IGNOREEOF
 setopt noflowcontrol # Ctrl+S, Ctrl+Q でのフロー制御を無効
