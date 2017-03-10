@@ -157,6 +157,9 @@ if [ -s "${KERL_ROOT}/bin/kerl" ]; then
     export ERLANG_VERSION=19.2
     [ -d "${KERL_ROOT}/installations/${ERLANG_VERSION}" ] && source "${KERL_ROOT}/installations/${ERLANG_VERSION}/activate"
 fi
+# Elixir (via kiex / need Erlanga)
+export KIEX_ROOT="${HOME}/.kiex"
+[[ -s "${KIEX_ROOT}/scripts/kiex" ]] && source "${KIEX_ROOT}/scripts/kiex"
 # Google Cloud SDK
 export GOOGLE_CLOUD_SDK=$HOME/google-cloud-sdk
 if [ -d $GOOGLE_CLOUD_SDK ]; then
