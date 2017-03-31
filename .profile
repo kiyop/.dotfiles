@@ -154,7 +154,7 @@ fi
 export KERL_ROOT="${HOME}/.kerl"
 if [ -s "${KERL_ROOT}/bin/kerl" ]; then
     export PATH="${KERL_ROOT}/bin:${PATH}"
-    export ERLANG_VERSION=19.2
+    export ERLANG_VERSION=19.3
     [ -d "${KERL_ROOT}/installations/${ERLANG_VERSION}" ] && source "${KERL_ROOT}/installations/${ERLANG_VERSION}/activate"
 fi
 # Elixir (via kiex / need Erlanga)
