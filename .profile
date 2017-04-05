@@ -15,8 +15,10 @@ alias show-path='echo -e ${PATH//:/"\n"}' # path をリストアップ
 # mkdir and cd
 mkdircd() { mkdir -p "$@" && eval cd "\"\$$#\""; }
 if [ `uname` = "Darwin" ]; then
-    alias o='open'
     alias ll='ls -laG'
+    alias o='open'
+    alias ql='qlmanage -p "$1" >& /dev/null'
+    alias imgsize='mdls -name kMDItemPixelWidth -name kMDItemPixelHeight' # 画像サイズ取得
     alias vim='/Applications/MacVim.app/Contents/MacOS/Vim'
     alias gvim='/Applications/MacVim.app/Contents/bin/mvim --remote-tab-silent'
     alias less='/Applications/MacVim.app/Contents/Resources/vim/runtime/macros/less.sh'
@@ -27,10 +29,6 @@ if [ `uname` = "Darwin" ]; then
 
     pbcopy-chomp() { local s; read -rd '' s; echo -n "$s" | pbcopy; }
     pbcopy-file() { cat "$1" | pbcopy-chomp; }
-    # QuickLook
-    alias ql='qlmanage -p "$1" >& /dev/null'
-    # 画像サイズ取得
-    alias imgsize="mdls -name kMDItemPixelWidth -name kMDItemPixelHeight"
     # 時間のかかるコマンドが終了したらDockでバウンドさせる
     beep-at-finished() { "$@"; beep; }
     beep-on-error() { "$@" || beep; }
