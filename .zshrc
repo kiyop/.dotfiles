@@ -37,6 +37,7 @@ setopt extended_history        # 履歴ファイルに時刻を記録
 setopt hist_verify             # 履歴を呼び出してから実行までに一旦編集可能
 setopt hist_expand             # 補完時にヒストリを自動的に展開
 history-all() { history -E 1 } # 全履歴の一覧を出力する
+alias history-list='history-all|awk '\''{for(i=4;i<NF;i++){printf("%s ",$i)}print $NF}'\'''
 
 # 補完機能
 zstyle ':completion:*:default' menu select=1

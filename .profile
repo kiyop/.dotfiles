@@ -21,7 +21,10 @@ if [ `uname` = "Darwin" ]; then
     alias gvim='/Applications/MacVim.app/Contents/bin/mvim --remote-tab-silent'
     alias less='/Applications/MacVim.app/Contents/Resources/vim/runtime/macros/less.sh'
     alias eclipse='open /Applications/eclipse/Eclipse.app'
-    alias md='open -a "Marked 2"'
+    [ -e "/Applications/CotEditor.app" ] && alias cot='open -a /Applications/CotEditor.app'
+    [ -e "/Applications/Marked 2.app" ] && alias md='open -a "Marked 2"'
+    [ -x "/Applications/Gyazo.app/Contents/MacOS/Gyazo" ] && alias gz='/Applications/Gyazo.app/Contents/MacOS/Gyazo'
+
     pbcopy-chomp() { local s; read -rd '' s; echo -n "$s" | pbcopy; }
     pbcopy-file() { cat "$1" | pbcopy-chomp; }
     # QuickLook
@@ -35,6 +38,10 @@ if [ `uname` = "Darwin" ]; then
     alias behat='beep-at-finished behat'
     # コマンド結果を通知センターに送る
     ntf() { if "$@"; then local t="(*'-') < Successful !!"; else t="( >_<)? < Failed..."; fi; echo "display notification \"$@\" with title \"$t\""|osascript; }
+    # QuickTime でキャプチャした iPhone のスクリーン動画をアニメ GIF 化する（以下の中のパラメータで画質とかファイルサイズが調整可能）
+    # `ffmpeg` と `gifsicle` は MacPorts/HomeBrew 等で予めインストールしておくこと
+    capmov2gif() { ffmpeg -i "$1" -vf "scale=320:-1" -pix_fmt rgb24 -r 30 -f gif - | gifsicle --delay=3 --optimize=3 }
+
     # tar でリソースフォーク (`._`で始まるファイル) を含めないようにする
     export COPYFILE_DISABLE=1
 
@@ -174,5 +181,8 @@ if type -p docker-machine &>/dev/null; then
     if [ -n "$(docker-machine ls --quiet --filter 'state=Running' --filter 'name=default')" ]; then
         docker-machine-env
     fi
+
+    # URL から Web サーバーの動作環境や利用ライブラリ、外部サービス等を調べる
+    alias wappalyzer='docker run --rm wappalyzer/cli $1'
 fi
 
