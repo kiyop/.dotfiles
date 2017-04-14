@@ -3,11 +3,6 @@ if [ -f $HOME/.profile ]; then
     source $HOME/.profile
 fi
 
-# kerl
-if [ -d "${KERL_ROOT}/bin/zsh_completion" ]; then
-    fpath=($fpath "${KERL_ROOT}/bin/zsh_completion")
-fi
-
 setopt ignore_eof    # Ctrl+Dでログアウトしないようにする
 setopt IGNOREEOF
 setopt noflowcontrol # Ctrl+S, Ctrl+Q でのフロー制御を無効
@@ -88,8 +83,8 @@ SPROMPT=$'%{\e[33m%}(*\'~\'%)? .｡oO( もしかして%{\e[m%} %U%B%r%b%u %{\e[3
 if [ -d $GOOGLE_CLOUD_SDK ]; then
     source $GOOGLE_CLOUD_SDK/completion.zsh.inc
 fi
-
-# 最後に GNU screen を立ち上げる
-if [ "$TERM" != 'screen' -a "$TERM" != 'screen-256color' -a "$TERM" != 'dumb' ]; then
-  [ `which screen 2>/dev/null` ] && screen -xRU || screen -D -RR -U
+# kerl
+if [ -d "${KERL_ROOT}/bin/zsh_completion" ]; then
+    fpath=($fpath "${KERL_ROOT}/bin/zsh_completion")
 fi
+

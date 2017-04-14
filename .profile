@@ -1,4 +1,10 @@
 # .profile
+
+# まずは GNU screen を立ち上げる
+if [ "$TERM" != 'screen' -a "$TERM" != 'screen-256color' -a "$TERM" != 'dumb' ]; then
+    [ `which screen 2>/dev/null` ] && screen -xRU || screen -D -RR -U
+fi
+
 export PATH=$HOME/bin:/usr/local/bin:/usr/local/sbin:$PATH
 export LANG=ja_JP.UTF-8
 export IGNOREEOF=10
@@ -38,7 +44,7 @@ if [ `uname` = "Darwin" ]; then
     ntf() { if "$@"; then local t="(*'-') < Successful !!"; else t="( >_<)? < Failed..."; fi; echo "display notification \"$@\" with title \"$t\""|osascript; }
     # QuickTime でキャプチャした iPhone のスクリーン動画をアニメ GIF 化する（以下の中のパラメータで画質とかファイルサイズが調整可能）
     # `ffmpeg` と `gifsicle` は MacPorts/HomeBrew 等で予めインストールしておくこと
-    capmov2gif() { ffmpeg -i "$1" -vf "scale=320:-1" -pix_fmt rgb24 -r 30 -f gif - | gifsicle --delay=3 --optimize=3 }
+    capmov2gif() { ffmpeg -i "$1" -vf "scale=320:-1" -pix_fmt rgb24 -r 30 -f gif - | gifsicle --delay=3 --optimize=3; }
 
     # tar でリソースフォーク (`._`で始まるファイル) を含めないようにする
     export COPYFILE_DISABLE=1

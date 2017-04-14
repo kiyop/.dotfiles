@@ -1,3 +1,4 @@
+# .bashrc
 if [ -f ~/.profile ]; then
     source ~/.profile
 fi
@@ -6,3 +7,4 @@ fi
 if [ -d $GOOGLE_CLOUD_SDK ]; then
     source $GOOGLE_CLOUD_SDK/completion.bash.inc
 fi
+
