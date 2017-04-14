@@ -1,26 +1,51 @@
 # .profile
 
-# まずは GNU screen を立ち上げる
-if [ "$TERM" != 'screen' -a "$TERM" != 'screen-256color' -a "$TERM" != 'dumb' ]; then
-    [ `which screen 2>/dev/null` ] && screen -xRU || screen -D -RR -U
-fi
-
+# ----------------------------------------
+# 基礎的な初期化
 export PATH=$HOME/bin:/usr/local/bin:/usr/local/sbin:$PATH
 export LANG=ja_JP.UTF-8
 export IGNOREEOF=10
-if [ -f $HOME/.profile_local ]; then
-    source $HOME/.profile_local
+
+# まずは GNU screen を立ち上げる
+if [ "$TERM" != 'screen' -a "$TERM" != 'screen-256color' -a "$TERM" != 'dumb' ]; then
+    type -p screen &>/dev/null && screen -xRU || screen -D -RR -U
 fi
 
+# ----------------------------------------
+# 環境に依存しない全般的な初期化
+export PAGER=less
+export MANPAGER='col -b -x|vim -R -c "set ft=man nolist nomod noma" -'
+export GIT_PAGER=less
+export GIT_EDITOR=vim
+export SVN_EDITOR=vim
+if type lv > /dev/null 2>&1; then
+    export LV='-c -Ou8'
+fi
+#export CACA_DRIVER=x11
+export CACA_DRIVER=ncurses
+
+# よく使うコマンド群
 alias beep='bash -c "echo -ne \"\\a\""'
 alias cp='cp -i'
 alias mv='mv -i'
 alias rm='rm -i'
-alias check-ip='curl ipcheck.ieserver.net' # グローバル IP を調べる (要 curl)
-alias show-path='echo -e ${PATH//:/"\n"}' # path をリストアップ
-# mkdir and cd
-mkdircd() { mkdir -p "$@" && eval cd "\"\$$#\""; }
+type -p tree &>/dev/null && alias tree='tree -aNC -I ".git"'
+mkdircd() { mkdir -p "$@" && eval cd "\"\$$#\""; } # mkdir and cd
+hr() { local s l; if [ $# -ge 1 ]; then s="$1"; else s="-"; fi; for i in $(seq 1 $COLUMNS); do l="$s$l"; done; echo "$l"; }
+if type -p colordiff &>/dev/null; then
+  alias diff='colordiff -u'
+else
+  alias diff='diff -u'
+fi
+
+# ----------------------------------------
+# 環境依存の初期化
+if [ -f $HOME/.profile_local ]; then
+    source $HOME/.profile_local
+fi
+
 if [ `uname` = "Darwin" ]; then
+    # macOS
     alias ll='ls -laG'
     alias o='open'
     alias ql='qlmanage -p "$1" >& /dev/null'
@@ -59,27 +84,29 @@ else
     alias less='/usr/share/vim/vim74/macros/less.sh'
 fi
 
-alias top='screen -t top top'
-alias grep='grep --color=auto --exclude-dir=.git'
-alias tailf='screen -t tailf tail -f'
-alias redis-cli='screen -t redis redis-cli'
-alias eq='screen -t earthquake earthquake'
-if [ `uname` = "Darwin" ]; then
-    alias vi='screen -t vim /Applications/MacVim.app/Contents/MacOS/Vim'
-else
-    alias vi='screen -t vim vim'
+# ----------------------------------------
+# GNU screen 環境下でのエイリアスコマンド
+# ※SSH 接続先などでは無効
+if [ -z "$SSH_CLIENT" -a -z "$SSH_CONNECTION" ]; then
+    ssh-on-screen() { eval SERVER=\${$#}; screen -t $SERVER ssh "$@"; }
+    alias ssh=ssh-on-screen
+    alias top='screen -t top top'
+    alias grep='grep --color=auto --exclude-dir=.git'
+    alias tailf='screen -t tailf tail -f'
+    alias redis-cli='screen -t redis redis-cli'
+    alias eq='screen -t earthquake earthquake'
+    if [ `uname` = "Darwin" ]; then
+        alias vi='screen -t vim /Applications/MacVim.app/Contents/MacOS/Vim'
+    else
+        alias vi='screen -t vim vim'
+    fi
 fi
-ssh-on-screen() { eval SERVER=\${$#}; screen -t $SERVER ssh "$@"; }
-#if [ "$TERM" = "screen" ]; then
-  alias ssh=ssh-on-screen
-#fi
 
-if type -p colordiff &>/dev/null; then
-  alias diff='colordiff -u'
-else
-  alias diff='diff -u'
-fi
-type -p tree &>/dev/null && alias tree='tree -aNC -I ".git"'
+# ----------------------------------------
+# 開発関連のコマンド群
+alias check-ip='curl ipcheck.ieserver.net' # グローバル IP を調べる (要 curl)
+alias show-path='echo -e ${PATH//:/"\n"}' # path をリストアップ
+alias aws='env -u MANPAGER aws'
 
 memcache-cli() {
     #bash -c "echo -e \"$1\\nquit\"" | curl -s -T - telnet://localhost:11211;
@@ -93,7 +120,6 @@ memcache-cli() {
 alias memcache-stats='memcache-cli stats'
 alias memcache-reset='memcache-cli flush_all'
 
-hr() { local s l; if [ $# -ge 1 ]; then s="$1"; else s="-"; fi; for i in $(seq 1 $COLUMNS); do l="$s$l"; done; echo "$l"; }
 git-checkout-all-branches() {
     case $# in
         1) local r=$1 ;;
@@ -113,17 +139,9 @@ git-status-all-directories() {
         *) echo "usage: $0 <directory>"; return 1 ;;
     esac
 }
-export PAGER=less
-export MANPAGER='col -b -x|vim -R -c "set ft=man nolist nomod noma" -'
-alias aws='env -u MANPAGER aws'
-export GIT_PAGER=less
-export GIT_EDITOR=vim
-export SVN_EDITOR=vim
-if type lv > /dev/null 2>&1; then
-    export LV='-c -Ou8'
-fi
-#export CACA_DRIVER=x11
-export CACA_DRIVER=ncurses
+
+# ----------------------------------------
+# 以下、外部スクリプト系の読み込み
 
 # Ruby (via rbenv)
 export RBENV_DIR="${HOME}/.rbenv"
