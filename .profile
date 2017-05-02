@@ -143,6 +143,11 @@ git-status-all-directories() {
 # ----------------------------------------
 # 以下、外部スクリプト系の読み込み
 
+# PHP (via phpbrew)
+export PHPBREW_DIR="${HOME}/.phpbrew"
+if [ -s "${PHPBREW_DIR}/bashrc" ]; then
+    source "${PHPBREW_DIR}/bashrc"
+fi
 # Ruby (via rbenv)
 export RBENV_DIR="${HOME}/.rbenv"
 if [ -s "${RBENV_DIR}/bin/rbenv" ]; then
