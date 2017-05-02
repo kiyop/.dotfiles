@@ -21,11 +21,11 @@ bin/
 pkg/
 #--------
 # IntelliJ IDEA
-.idea/
+.idea
 *.ipr
 *.iml
 *.iws
 out/
 #--------
 # Visual Studio Code
-.vscode/
+.vscode
