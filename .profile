@@ -191,9 +191,13 @@ if [ -s "${KERL_ROOT}/bin/kerl" ]; then
     export ERLANG_VERSION=19.3
     [ -d "${KERL_ROOT}/installations/${ERLANG_VERSION}" ] && source "${KERL_ROOT}/installations/${ERLANG_VERSION}/activate"
 fi
-# Elixir (via kiex / need Erlanga)
+# Elixir (via kiex, need Erlang/OTP)
 export KIEX_ROOT="${HOME}/.kiex"
 [[ -s "${KIEX_ROOT}/scripts/kiex" ]] && source "${KIEX_ROOT}/scripts/kiex"
+# Cargo (package manager for Rust)
+# https://crates.io/
+export CARGO_ROOT="${HOME}/.cargo"
+[[ -s "${CARGO_ROOT}/bin/cargo" ]] && export PATH="${CARGO_ROOT}/bin:${PATH}"
 # Google Cloud SDK
 export GOOGLE_CLOUD_SDK=$HOME/google-cloud-sdk
 if [ -d $GOOGLE_CLOUD_SDK ]; then
