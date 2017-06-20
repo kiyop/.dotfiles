@@ -60,6 +60,11 @@ if [ `uname` = "Darwin" ]; then
 
     pbcopy-chomp() { local s; read -rd '' s; echo -n "$s" | pbcopy; }
     pbcopy-file() { cat "$1" | pbcopy-chomp; }
+    unixtime-now() { date +%s; }
+    unixtime-to-iso8601-utc() { [ -z "$1" ] && t=$(unixtime-now) || t="$1"; date -u -r "$t" +%FT%TZ; }
+    unixtime-to-iso8601-tz() { [ -z "$1" ] && t=$(unixtime-now) || t="$1"; date -r "$t" +%FT%T%z; }
+    iso8601-utc-to-unixtime() { date -u -jf %FT%TZ "$1" +%s; }
+    iso8601-tz-to-unixtime() { date -jf %FT%T%z "$1" +%s; }
     # 時間のかかるコマンドが終了したらDockでバウンドさせる
     beep-at-finished() { "$@"; beep; }
     beep-on-error() { "$@" || beep; }
