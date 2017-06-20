@@ -48,7 +48,6 @@ if [ `uname` = "Darwin" ]; then
     # macOS
     alias ll='ls -laG'
     alias o='open'
-    alias ql='qlmanage -p "$1" >& /dev/null'
     alias imgsize='mdls -name kMDItemPixelWidth -name kMDItemPixelHeight' # 画像サイズ取得
     alias vim='/Applications/MacVim.app/Contents/MacOS/Vim'
     alias gvim='/Applications/MacVim.app/Contents/bin/mvim --remote-tab-silent'
@@ -58,6 +57,7 @@ if [ `uname` = "Darwin" ]; then
     [ -e "/Applications/Marked 2.app" ] && alias md='open -a "Marked 2"'
     [ -x "/Applications/Gyazo.app/Contents/MacOS/Gyazo" ] && alias gz='/Applications/Gyazo.app/Contents/MacOS/Gyazo'
 
+    ql() { qlmanage -p "$1" >& /dev/null; }
     pbcopy-chomp() { local s; read -rd '' s; echo -n "$s" | pbcopy; }
     pbcopy-file() { cat "$1" | pbcopy-chomp; }
     unixtime-now() { date +%s; }
@@ -219,6 +219,6 @@ if type -p docker-machine &>/dev/null; then
     fi
 
     # URL から Web サーバーの動作環境や利用ライブラリ、外部サービス等を調べる
-    alias wappalyzer='docker run --rm wappalyzer/cli $1'
+    wappalyzer() { docker run --rm wappalyzer/cli "$1"; }
 fi
 
