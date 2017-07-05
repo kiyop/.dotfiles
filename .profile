@@ -162,12 +162,7 @@ fi
 # Go Programing Language (via GVM)
 export GVM_DIR="${HOME}/.gvm"
 if [ -s "${GVM_DIR}/scripts/gvm" ]; then
-    export GO_VERSION=go1.7.3
-    export GVM_PKGSET=local
     source "${GVM_DIR}/scripts/gvm"
-    gvm use "${GO_VERSION}"
-    [ -z $(gvm pkgset list | grep "${GVM_PKGSET}") ] && gvm pkgset create "${GVM_PKGSET}"
-    gvm pkgset use "${GVM_PKGSET}"
 fi
 # Node.js (via NVM)
 export NVM_DIR="${HOME}/.nvm"
