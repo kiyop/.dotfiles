@@ -81,6 +81,7 @@ set scrolloff=5 " スクロール時の余白確保
 "set list
 "set listchars=tab:\ \ ,extends:<,trail:\
 set directory=/tmp
+set cmdheight=1 " コマンドラインに使われる画面上の行数
 set laststatus=2 " ステータスラインを常に表示
 " ステータスラインのカスタマイズ
 "set statusline=[%L]\ %t\ %y%{'['.(&fenc!=''?&fenc:&enc).':'.&ff.']'}%r%m%=%c:%l/%L
