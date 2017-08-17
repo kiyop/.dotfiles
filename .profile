@@ -213,8 +213,15 @@ if type -p docker-machine &>/dev/null; then
         docker-machine-env
     fi
 
+    # Docker コンテナ用モニタリングツール
+    alias ctop='screen -t ctop docker run --rm -ti --name=ctop -v /var/run/docker.sock:/var/run/docker.sock quay.io/vektorlab/ctop:latest'
     # URL から Web サーバーの動作環境や利用ライブラリ、外部サービス等を調べる
-    wappalyzer() { docker run --rm wappalyzer/cli "$1"; }
+    wappalyzer() {
+        case $# in
+            1) docker run --rm wappalyzer/cli "$1" ;;
+            *) echo "usage: $0 <url>"; return 1 ;;
+        esac
+    }
 fi
 # Android SDK
 export ANDROID_SDK=$HOME/Library/Android/sdk
