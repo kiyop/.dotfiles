@@ -194,6 +194,9 @@ fi
 # Elixir (via kiex, need Erlang/OTP)
 export KIEX_ROOT="${HOME}/.kiex"
 [[ -s "${KIEX_ROOT}/scripts/kiex" ]] && source "${KIEX_ROOT}/scripts/kiex"
+# emscripten (via emsdk-portable)
+export EMSDK_PORTABLE_ROOT="${HOME}/.emsdk-portable"
+[[ -s "${EMSDK_PORTABLE_ROOT}/emsdk_env.sh" ]] && source "${EMSDK_PORTABLE_ROOT}/emsdk_env.sh" &>/dev/null
 # Cargo (package manager for Rust)
 # https://crates.io/
 export CARGO_ROOT="${HOME}/.cargo"
