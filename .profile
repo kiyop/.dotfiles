@@ -39,7 +39,10 @@ else
 fi
 
 # ----------------------------------------
-# 環境依存の初期化
+# 環境依存の初期化（先行読み込み用）
+if [ -f $HOME/.profile_local_preprofile ]; then
+    source $HOME/.profile_local_preprofile
+fi
 if [ -f $HOME/.profile_local ]; then
     source $HOME/.profile_local
 fi
@@ -231,5 +234,12 @@ export ANDROID_SDK=$HOME/Library/Android/sdk
 if [ -d "${ANDROID_SDK}" ]; then
     export PATH=${PATH}:${ANDROID_SDK}/platform-tools:${ANDROID_SDK}/tools
     type -p exp &>/dev/null && exp path &>/dev/null # for expo
+fi
+
+
+# ----------------------------------------
+# 環境依存の初期化（後付け用）
+if [ -f $HOME/.profile_local_postprofile ]; then
+    source $HOME/.profile_local_postprofile
 fi
 
