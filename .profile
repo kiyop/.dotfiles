@@ -153,6 +153,13 @@ git-status-all-directories() {
 # ----------------------------------------
 # 以下、外部スクリプト系の読み込み
 
+# emscripten (via emsdk-portable)
+export EMSDK_PORTABLE_ROOT="${HOME}/.emsdk-portable"
+[[ -s "${EMSDK_PORTABLE_ROOT}/emsdk_env.sh" ]] && source "${EMSDK_PORTABLE_ROOT}/emsdk_env.sh" &>/dev/null
+# Rust toolchain (including rustc, cargo, and rustup)
+# https://www.rust-lang.org/
+export CARGO_ROOT="${HOME}/.cargo"
+[[ -s "${CARGO_ROOT}/bin/cargo" ]] && export PATH="${CARGO_ROOT}/bin:${PATH}"
 # PHP (via phpbrew)
 export PHPBREW_DIR="${HOME}/.phpbrew"
 if [ -s "${PHPBREW_DIR}/bashrc" ]; then
@@ -199,13 +206,6 @@ fi
 # Elixir (via kiex, need Erlang/OTP)
 export KIEX_ROOT="${HOME}/.kiex"
 [[ -s "${KIEX_ROOT}/scripts/kiex" ]] && source "${KIEX_ROOT}/scripts/kiex"
-# emscripten (via emsdk-portable)
-export EMSDK_PORTABLE_ROOT="${HOME}/.emsdk-portable"
-[[ -s "${EMSDK_PORTABLE_ROOT}/emsdk_env.sh" ]] && source "${EMSDK_PORTABLE_ROOT}/emsdk_env.sh" &>/dev/null
-# Cargo (package manager for Rust)
-# https://crates.io/
-export CARGO_ROOT="${HOME}/.cargo"
-[[ -s "${CARGO_ROOT}/bin/cargo" ]] && export PATH="${CARGO_ROOT}/bin:${PATH}"
 # Google Cloud SDK
 export GOOGLE_CLOUD_SDK=$HOME/google-cloud-sdk
 if [ -d $GOOGLE_CLOUD_SDK ]; then
