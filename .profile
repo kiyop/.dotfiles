@@ -6,10 +6,11 @@ export PATH=$HOME/bin:/usr/local/bin:/usr/local/sbin:$PATH
 export LANG=ja_JP.UTF-8
 export IGNOREEOF=10
 
-# まずは GNU screen を立ち上げる
-if [ "$TERM" != 'screen' -a "$TERM" != 'screen-256color' -a "$TERM" != 'dumb' ]; then
-    type -p screen &>/dev/null && screen -xRU || screen -D -RR -U
-fi
+# 2017/11/13 一旦、GNU screen の起動をターミナルソフト側で行うようにして様子見。もし問題があれば戻すかも
+## まずは GNU screen を立ち上げる
+#if [ "$TERM" != 'screen' -a "$TERM" != 'screen-256color' -a "$TERM" != 'dumb' ]; then
+#    type -p screen &>/dev/null && screen -xRU || screen -D -RR -U
+#fi
 
 # ----------------------------------------
 # 環境に依存しない全般的な初期化
