@@ -147,26 +147,6 @@ set expandtab   " タブを空白文字に展開
 set autoindent  " 自動インデント: 改行時に前行のインデントを引き継ぐ
 "set smartindent " スマートインデント: 「{」「}」やプログラム構文などで自動的に１段下げる・上げる
 
-" 文字装飾
-set cursorline " カーソル行に下線を表示
-if has("syntax")
-    syntax on
-    function! ActivateInvisibleIndicator()
-        syntax match InvisibleJISX0208Space "　" display containedin=ALL
-        highlight InvisibleJISX0208Space term=underline ctermbg=DarkBlue guibg=DarkBlue
-        syntax match InvisibleTab "\t" display containedin=ALL
-        highlight InvisibleTab term=underline ctermbg=DarkGrey guibg=DarkGrey
-        syntax match InvisibleTrailedSpace "[ \t]\+$" display containedin=ALL
-        highlight InvisibleTrailedSpace term=underline ctermbg=DarkRed guibg=DarkRed
-    endf
-
-    augroup invisible
-        autocmd! invisible
-        autocmd BufNew,BufRead * call ActivateInvisibleIndicator()
-    augroup END
-endif
-set showmatch "括弧入力時の対応する括弧を強調
-
 " 画面を分割してexploreを起動（あんまり使わないけど一応）
 map <C-W><C-V> :Vexplore!<CR>
 map <C-W><C-H> :Hexplore<CR>
@@ -258,6 +238,7 @@ autocmd! BufRead,BufNewFile *.cgi set filetype=perl
 autocmd! BufRead,BufNewFile *.markdown set filetype=markdown
 autocmd! BufRead,BufNewFile *.md set filetype=markdown
 autocmd! BufRead,BufNewFile *.markdown.txt set filetype=markdown
+autocmd! BufRead,BufNewFile *.md.txt set filetype=markdown
 autocmd FileType php set makeprg=php\ -l\ %
 autocmd FileType php set errorformat=%m\ in\ %f\ on\ line\ %l
 autocmd FileType php set tabstop=4 shiftwidth=4 softtabstop=0
@@ -307,6 +288,30 @@ let g:gofmt_command = 'goimports' " :Fmt などで gofmt の代わりに goimpor
 au BufWritePre *.go Fmt " 保存時に :Fmt する
 au BufNewFile,BufRead *.go set sw=4 noexpandtab ts=4
 au FileType go compiler go
+
+" ------------------------------
+" 文字装飾
+" ファイルタイプ別（Syntax Highlight）設定の後に置かないと
+" 正しく動作しない場合があるのでここに記述
+set cursorline " カーソル行に下線を表示
+highlight CursorLine cterm=underline ctermfg=NONE ctermbg=NONE
+set showmatch "括弧入力時の対応する括弧を強調
+if has("syntax")
+    syntax on
+    function! ActivateInvisibleIndicator()
+        syntax match InvisibleJISX0208Space "　" display containedin=ALL
+        highlight InvisibleJISX0208Space term=underline ctermbg=DarkBlue guibg=DarkBlue
+        syntax match InvisibleTab "\t" display containedin=ALL
+        highlight InvisibleTab term=underline ctermbg=DarkGrey guibg=DarkGrey
+        syntax match InvisibleTrailedSpace "[ \t]\+$" display containedin=ALL
+        highlight InvisibleTrailedSpace term=underline ctermbg=DarkRed guibg=DarkRed
+    endf
+
+    augroup invisible
+        autocmd! invisible
+        autocmd BufNew,BufRead * call ActivateInvisibleIndicator()
+    augroup END
+endif
 
 " ------------------------------
 " OS 別の設定 (CUI / GUI 共通)

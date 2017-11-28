@@ -11,6 +11,7 @@ winpos 8 30 " 起動時のWindowの位置(:winposで現在の位置が取得で�
 set shortmess+=I " 起動時のメッセージを消す(ウガンダに寄付しないフトドキモノ用)
 "autocmd GUIEnter * simalt ~x " 起動時に最大化する
 set guioptions-=T " ツールバー表示しない
+highlight CursorLine gui=underline guifg=NONE guibg=NONE " カーソル行に下線
 
 " 環境別設定
 if has('win32')
@@ -27,7 +28,7 @@ if has('win32')
     set directory=$TEMP
     set clipboard=unnamed "ヤンクしたらクリップボードにも送る
 elseif has('gui_macvim')
-    winpos 15 25
+    winpos 28 25
     "set guifont=Osaka-Mono:h9
     "set guifont=Monaco:h10
     "set guifont=Monaco:h10
