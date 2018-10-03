@@ -87,4 +87,7 @@ fi
 if [ -d "${KERL_ROOT}/bin/zsh_completion" ]; then
     fpath=($fpath "${KERL_ROOT}/bin/zsh_completion")
 fi
-
+## Chef DK
+#if type -p chef &>/dev/null; then
+#    eval "$(chef shell-init zsh)"
+#fi
