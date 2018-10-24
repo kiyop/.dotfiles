@@ -167,9 +167,8 @@ if [ -s "${PHPBREW_DIR}/bashrc" ]; then
     source "${PHPBREW_DIR}/bashrc"
 fi
 # Ruby (via rbenv)
-export RBENV_DIR="${HOME}/.rbenv"
-if [ -s "${RBENV_DIR}/bin/rbenv" ]; then
-    export PATH="${HOME}/.rbenv/bin:${PATH}"
+export RBENV_DIR_="${HOME}/.rbenv"
+if type -p rbenv &>/dev/null && [ -d "${RBENV_DIR_}" ]; then
     eval "$(rbenv init -)"
 fi
 # Go Programing Language (via GVM)
