@@ -34,9 +34,13 @@ type -p tree &>/dev/null && alias tree='tree -aNC -I ".git"'
 mkdircd() { mkdir -p "$@" && eval cd "\"\$$#\""; } # mkdir and cd
 hr() { local s l; if [ $# -ge 1 ]; then s="$1"; else s="-"; fi; for i in $(seq 1 $COLUMNS); do l="$s$l"; done; echo "$l"; }
 if type -p colordiff &>/dev/null; then
-  alias diff='colordiff -u'
+    alias diff='colordiff -u'
 else
-  alias diff='diff -u'
+    alias diff='diff -u'
+fi
+if type -p nkf &>/dev/null; then
+    alias conv-csv='nkf --overwrite --oc=UTF-8 -Lu' # UTF-8 BOMなし
+    alias conv-csv-win='nkf --overwrite -sLu'
 fi
 
 # ----------------------------------------
@@ -74,8 +78,19 @@ if [ `uname` = "Darwin" ]; then
     beep-on-error() { "$@" || beep; }
     alias phpunit='beep-at-finished phpunit'
     alias behat='beep-at-finished behat'
+    ntf() {
+        case $# in
+            1) osascript -e "display notification \"$1\"" ;;
+            2) osascript -e "display notification \"$2\" with title \"$1\"" ;;
+            3) osascript -e "display notification \"$3\" with title \"$1\" subtitle \"$2\"" ;;
+            *) echo "usage: $0 [<title> [<subtitle>]] <message>"; return 1 ;;
+        esac
+    }
     # コマンド結果を通知センターに送る
-    ntf() { if "$@"; then local t="(*'-') < Successful !!"; else t="( >_<)? < Failed..."; fi; echo "display notification \"$@\" with title \"$t\""|osascript; }
+    ntf-cmd() {
+        local r=$("$@" 2>&1) t=$([ $? = 0 ] && echo "(*'-') < Successful !!" || echo "( >_<)? < Failed...")
+        echo "display notification \"$r\" with title \"$t\" subtitle \"$@\"" | osascript;
+    }
     # QuickTime でキャプチャした iPhone のスクリーン動画をアニメ GIF 化する（以下の中のパラメータで画質とかファイルサイズが調整可能）
     # `ffmpeg` と `gifsicle` は MacPorts/HomeBrew 等で予めインストールしておくこと
     capmov2gif() { ffmpeg -i "$1" -vf "scale=320:-1" -pix_fmt rgb24 -r 30 -f gif - | gifsicle --delay=3 --optimize=3; }
