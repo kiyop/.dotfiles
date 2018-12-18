@@ -169,6 +169,8 @@ git-status-all-directories() {
 # ----------------------------------------
 # 以下、外部スクリプト系の読み込み
 
+# direnv
+type -p direnv &>/dev/null && eval "$(direnv hook $(basename ${SHELL}))"
 # emscripten (via emsdk-portable)
 export EMSDK_PORTABLE_ROOT="${HOME}/.emsdk-portable"
 [[ -s "${EMSDK_PORTABLE_ROOT}/emsdk_env.sh" ]] && source "${EMSDK_PORTABLE_ROOT}/emsdk_env.sh" &>/dev/null

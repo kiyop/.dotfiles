@@ -9,6 +9,10 @@ Desktop.ini
 *~
 
 #--------
+# direnv
+.envrc
+
+#--------
 # Eclipse
 /.project/
 /.cproject/
@@ -47,3 +51,4 @@ yarn-error.log*
 #--------
 # composer
 vendor/
+
