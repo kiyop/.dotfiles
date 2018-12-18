@@ -39,8 +39,8 @@ else
     alias diff='diff -u'
 fi
 if type -p nkf &>/dev/null; then
-    alias conv-csv='nkf --overwrite --oc=UTF-8 -Lu' # UTF-8 BOMなし
-    alias conv-csv-win='nkf --overwrite -sLu'
+    alias conv-csv='nkf --overwrite --oc=UTF-8-BOM -Lw'
+    alias conv-csv-win='nkf --overwrite -sLw'
 fi
 
 # ----------------------------------------
