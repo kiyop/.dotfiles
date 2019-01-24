@@ -18,6 +18,7 @@ call :MAKE_SYMLINK /D "%dst%"\.git_template "%src%".git_template
 call :MAKE_SYMLINK "%dst%"\_vimrc "%src%".vimrc
 call :MAKE_SYMLINK "%dst%"\_gvimrc "%src%".gvimrc
 call :MAKE_SYMLINK /D "%dst%"\_vim "%src%".vim
+call :MAKE_SYMLINK "%dst%"\.editorconfig "%src%".editorconfig
 echo The installation is complete.
 pause
 exit
