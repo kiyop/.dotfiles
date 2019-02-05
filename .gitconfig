@@ -1,32 +1,32 @@
-#[user]
-#	name = ***
-#	email = ***@***.***
+# [user]
+#    name = ***
+#    email = ***@***.***
 [core]
-	autocrlf = false
-	quotepath = true
-	precomposeunicode = true
-	preloadindex = true
-	excludesfile = ~/.gitignore_global
+    autocrlf = false
+    quotepath = true
+    precomposeunicode = true
+    preloadindex = true
+    excludesfile = ~/.gitignore_global
 [alias]
-	#tree = log --graph --all --format=\"%x09%C(cyan bold)%an%Creset%x09%C(yellow)%h%Creset %C(magenta reverse)%d%Creset %s\"
-	tree = log --graph --pretty='format:%C(yellow)%h%Creset %s %Cgreen(%an)%Creset %Cred%d%Creset'
-	rename-remote-branch = "!f(){ git checkout -b $2 $1/$2; git branch -m $3; git push $1 $3 :$2; }; f"
+    # tree = "log --graph --all --format='%x09%C(cyan bold)%an%Creset%x09%C(yellow)%h%Creset %C(magenta reverse)%d%Creset %s'"
+    tree = "log --graph --pretty='format:%C(yellow)%h%Creset %s %Cgreen(%an)%Creset %Cred%d%Creset'"
+    rename-remote-branch = "!f(){ git checkout -b $2 $1/$2; git branch -m $3; git push $1 $3 :$2; }; f"
 [push]
-	default = nothing
+    default = nothing
 [difftool "Kaleidoscope"]
-	cmd = ksdiff --partial-changeset --relative-path \"$MERGED\" -- \"$LOCAL\" \"$REMOTE\"
+    cmd = ksdiff --partial-changeset --relative-path \"$MERGED\" -- \"$LOCAL\" \"$REMOTE\"
 [diff]
-	tool = Kaleidoscope
+    tool = Kaleidoscope
 [difftool]
-	prompt = false
+    prompt = false
 [mergetool "Kaleidoscope"]
-	cmd = ksdiff --merge --output \"$MERGED\" --base \"$BASE\" -- \"$LOCAL\" --snapshot \"$REMOTE\" --snapshot
-	trustExitCode = true
+    cmd = ksdiff --merge --output \"$MERGED\" --base \"$BASE\" -- \"$LOCAL\" --snapshot \"$REMOTE\" --snapshot
+    trustExitCode = true
 [mergetool]
-	prompt = false
+    prompt = false
 [merge]
-	tool = Kaleidoscope
+    tool = Kaleidoscope
 [include]
-	path = ~/.gitconfig_local
+    path = ~/.gitconfig_local
 [init]
-	templatedir = ~/.git_template
+    templatedir = ~/.git_template
