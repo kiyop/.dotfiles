@@ -73,6 +73,9 @@ if [ `uname` = "Darwin" ]; then
     unixtime-to-iso8601-tz() { [ -z "$1" ] && t=$(unixtime-now) || t="$1"; date -r "$t" +%FT%T%z; }
     iso8601-utc-to-unixtime() { date -u -jf %FT%TZ "$1" +%s; }
     iso8601-tz-to-unixtime() { date -jf %FT%T%z "$1" +%s; }
+    teetime() { while IFS= read l; do d=$(echo "$l" | sed "s/^/[$(date +'%F %T')] /"); echo "$d"; [ -n "$1" ] && echo "$d" >> "$1"; done; }
+    teetime+() { [ -n "$1" ] && teetime "$1-$(date +%Y%m%d_%H%M%S)" || teetime; }
+    logging() { [ $# -ge 2 ] && { "${@:2}" 2>&1 | teetime+ "$1"; } || { echo "usage: $0 <log_file> <command>..."; return 1; } }
     # 時間のかかるコマンドが終了したらDockでバウンドさせる
     beep-at-finished() { "$@"; beep; }
     beep-on-error() { "$@" || beep; }
