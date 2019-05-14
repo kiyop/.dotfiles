@@ -73,10 +73,6 @@ if [ `uname` = "Darwin" ]; then
     unixtime-to-iso8601-tz() { [ -z "$1" ] && t=$(unixtime-now) || t="$1"; date -r "$t" +%FT%T%z; }
     iso8601-utc-to-unixtime() { date -u -jf %FT%TZ "$1" +%s; }
     iso8601-tz-to-unixtime() { date -jf %FT%T%z "$1" +%s; }
-    teetime() { while IFS= read l; do d=$(echo "$l" | sed "s/^/[$(date +'%F %T')] /"); echo "$d"; [ -n "$1" ] && echo "$d" >> "$1"; done; }
-    teetime+() { [ -n "$1" ] && teetime "$1-$(date +%Y%m%d_%H%M%S)" || teetime; }
-    _time() { s=$(date +%s); "$@"; echo; echo "Done in $(expr $(date +%s) - $s) sec."; }
-    logging() { [ $# -ge 2 ] && { _time "${@:2}" 2>&1 | teetime+ "$1"; } || { echo "usage: $0 <log_file> <command>..."; return 1; } }
     # 時間のかかるコマンドが終了したらDockでバウンドさせる
     beep-at-finished() { "$@"; beep; }
     beep-on-error() { "$@" || beep; }
@@ -111,6 +107,13 @@ else
     alias ll='ls -la --color'
     alias less='/usr/share/vim/vim74/macros/less.sh'
 fi
+teetime() { while IFS= read l; do d=$(echo "$l" | sed "s/^/[$(date +'%F %T')] /"); echo "$d"; [ -n "$1" ] && echo "$d" >> "$1"; done; }
+teetime+() { [ -n "$1" ] && teetime "$1-$(date +%Y%m%d_%H%M%S)" || teetime; }
+_proctime() {
+  s=$(date +%s); "$@"; s=$(($(date +%s) - $s));
+  printf '\nDone in %d days %02d:%02d:%02d (%s sec.)\n' $(($s/86400)) $(($s%86400/3600)) $(($s%3600/60)) $(($s%60)) $s;
+}
+logging() { [ $# -ge 2 ] && { _proctime "${@:2}" 2>&1 | teetime+ "$1"; } || { echo "usage: $0 <log_file> <command>..."; return 1; } }
 
 # ----------------------------------------
 # GNU screen 環境下でのエイリアスコマンド
