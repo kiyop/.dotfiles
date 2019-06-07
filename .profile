@@ -109,11 +109,13 @@ else
 fi
 teetime() { while IFS= read l; do d=$(echo "$l" | sed "s/^/[$(date +'%F %T')] /"); echo "$d"; [ -n "$1" ] && echo "$d" >> "$1"; done; }
 teetime+() { [ -n "$1" ] && teetime "$1-$(date +%Y%m%d_%H%M%S)" || teetime; }
-_proctime() {
+proctime() {
   s=$(date +%s); "$@"; s=$(($(date +%s) - $s));
   printf '\nDone in %d days %02d:%02d:%02d (%s sec.)\n' $(($s/86400)) $(($s%86400/3600)) $(($s%3600/60)) $(($s%60)) $s;
 }
-logging() { [ $# -ge 2 ] && { _proctime "${@:2}" 2>&1 | teetime+ "$1"; } || { echo "usage: $0 <log_file> <command>..."; return 1; } }
+logging() { [ $# -ge 2 ] && { proctime "${@:2}" 2>&1 | teetime+ "$1"; } || { echo "usage: $0 <log_file> <command>..."; return 1; } }
+alias alt-pwgen="</dev/urandom LANG=C tr -dc A-Za-z0-9 | head -c$1"
+alias alt-pwgen-strict="</dev/urandom LANG=C tr -dc [:graph:] | head -c$1"
 
 # ----------------------------------------
 # GNU screen 環境下でのエイリアスコマンド
