@@ -30,6 +30,9 @@ alias beep='bash -c "echo -ne \"\\a\""'
 alias cp='cp -i'
 alias mv='mv -i'
 alias rm='rm -i'
+alias remove-blanks='sed "s/^[[:blank:]]*//;s/[[:blank:]]*$//"'
+alias remove-blank-lines='sed "s/^[[:blank:]]*//;s/[[:blank:]]*$//;/^$/d"'
+alias trim=remove-blank-lines
 type -p tree &>/dev/null && alias tree='tree -aNC -I ".git"'
 mkdircd() { mkdir -p "$@" && eval cd "\"\$$#\""; } # mkdir and cd
 hr() { local s l; if [ $# -ge 1 ]; then s="$1"; else s="-"; fi; for i in $(seq 1 $COLUMNS); do l="$s$l"; done; echo "$l"; }
