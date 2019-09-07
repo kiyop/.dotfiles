@@ -110,15 +110,6 @@ else
     alias ll='ls -la --color'
     alias less='/usr/share/vim/vim74/macros/less.sh'
 fi
-teetime() { while IFS= read l; do d=$(echo "$l" | sed "s/^/[$(date +'%F %T')] /"); echo "$d"; [ -n "$1" ] && echo "$d" >> "$1"; done; }
-teetime+() { [ -n "$1" ] && teetime "$1-$(date +%Y%m%d_%H%M%S)" || teetime; }
-proctime() {
-  s=$(date +%s); "$@"; s=$(($(date +%s) - $s));
-  printf '\nDone in %d days %02d:%02d:%02d (%s sec.)\n' $(($s/86400)) $(($s%86400/3600)) $(($s%3600/60)) $(($s%60)) $s;
-}
-logging() { [ $# -ge 2 ] && { proctime "${@:2}" 2>&1 | teetime+ "$1"; } || { echo "usage: $0 <log_file> <command>..."; return 1; } }
-alias alt-pwgen="</dev/urandom LANG=C tr -dc A-Za-z0-9 | head -c$1"
-alias alt-pwgen-strict="</dev/urandom LANG=C tr -dc [:graph:] | head -c$1"
 
 # ----------------------------------------
 # GNU screen 環境下でのエイリアスコマンド
@@ -142,9 +133,18 @@ fi
 
 # ----------------------------------------
 # 開発関連のコマンド群
-alias check-ip='curl ipcheck.ieserver.net' # グローバル IP を調べる (要 curl)
+alias check-ip='curl inet-ip.info' # グローバル IP を調べる (要 curl)
 alias show-path='echo -e ${PATH//:/"\n"}' # path をリストアップ
 alias aws='env -u MANPAGER aws'
+alias alt-pwgen="</dev/urandom LANG=C tr -dc A-Za-z0-9 | head -c$1"
+alias alt-pwgen-strict="</dev/urandom LANG=C tr -dc [:graph:] | head -c$1"
+teetime() { while IFS= read l; do d=$(echo "$l" | sed "s/^/[$(date +'%F %T')] /"); echo "$d"; [ -n "$1" ] && echo "$d" >> "$1"; done; }
+teetime+() { [ -n "$1" ] && teetime "$1-$(date +%Y%m%d_%H%M%S)" || teetime; }
+outcome() {
+    t=$(date +%s); "$@"; e=$?; t=$(($(date +%s) - $t)); printf '\nExited with code %d\n' $e;
+    printf 'Done in %d days %02d:%02d:%02d (%d sec.)\n' $(($t/86400)) $(($t%86400/3600)) $(($t%3600/60)) $(($t%60)) $t;
+}
+logging() { [ $# -ge 2 ] && { outcome "${@:2}" 2>&1 | teetime+ "$1"; } || { echo "usage: $0 <log_file> <command>..."; return 1; } }
 
 memcache-cli() {
     #bash -c "echo -e \"$1\\nquit\"" | curl -s -T - telnet://localhost:11211;
