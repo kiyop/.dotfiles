@@ -36,6 +36,7 @@ alias trim=remove-blank-lines
 type -p tree &>/dev/null && alias tree='tree -aNC -I ".git"'
 mkdircd() { mkdir -p "$@" && eval cd "\"\$$#\""; } # mkdir and cd
 hr() { local s l; if [ $# -ge 1 ]; then s="$1"; else s="-"; fi; for i in $(seq 1 $COLUMNS); do l="$s$l"; done; echo "$l"; }
+printenv+() { for e in $(printenv|grep -v "^\t\|^_"|cut -d= -f1|([ $# -ge 1 ] && grep "$@" || cat)|sort); do echo "$e=$(printenv $e)"; done; }
 if type -p colordiff &>/dev/null; then
     alias diff='colordiff -u'
 else
