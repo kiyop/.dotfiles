@@ -36,11 +36,12 @@ alias history-list='history-all|sed -e "s/^ *//"|awk -F"  " '\''{print $3}'\'''
 alias history-grep='history-all|sed -e "s/^ *//"|awk -F"  " '\''BEGIN{OFS="  "}{print $2,$3}'\''|grep --color=auto -i'
 
 # 補完機能
-zstyle ':completion:*:default' menu select=1
-zstyle ':completion:*' list-colors di=34 fi=0
+# zstyle ':completion:*:default' menu select=1
+# zstyle ':completion:*' list-colors di=34 fi=0
 # コマンドオプション等コマンド特有の補完を有効にする
 autoload -U compinit
 compinit
+setopt complete_aliases        # エイリアスコマンドでも補完
 setopt list_types              # 補完候補一覧でファイル種別マークを表示
 setopt auto_list               # 補完候補が複数ある時に、一覧表示
 setopt auto_menu               # 補完キー (Tab, Ctrl+I) 連打で候補を自動補完
@@ -58,6 +59,10 @@ bindkey "^P" history-beginning-search-backward-end
 bindkey "^[p" history-beginning-search-backward-end
 bindkey "^N" history-beginning-search-forward-end
 bindkey "^[n" history-beginning-search-forward-end
+# ssh ホスト名補完のカスタマイズ
+_ssh() {
+  compadd `grep -v '^#' ~/.ssh/config | fgrep 'Host ' | awk '{ for(i=2;i<=NF;++i) { print $i }}' | sort`
+}
 
 # 左プロンプト
 setopt prompt_subst
