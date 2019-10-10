@@ -63,6 +63,9 @@ bindkey "^[n" history-beginning-search-forward-end
 _ssh() {
   compadd `grep -v '^#' ~/.ssh/config | fgrep 'Host ' | awk '{ for(i=2;i<=NF;++i) { print $i }}' | sort`
 }
+_ssh_hosts() {
+  compadd `grep -v '^#' ~/.ssh/config | fgrep 'Host ' | awk '{ for(i=2;i<=NF;++i) { print $i }}' | sort`
+}
 
 # 左プロンプト
 setopt prompt_subst
