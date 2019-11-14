@@ -1,0 +1,97 @@
+[
+  { "key": "alt+cmd+a", "command": "workbench.action.toggleActivityBarVisibility" },
+  { "key": "alt+cmd+b", "command": "workbench.action.toggleSidebarVisibility" },
+  { "key": "shift+cmd+v", "command": "markdown.showPreviewToSide", "when": "editorLangId == 'markdown'" },
+
+  // ファイルタブ間、各種コンソール間、サイドメニュー間でアクティブなタブ（最前面のもの）を切り替える
+  { "key": "ctrl+tab", "command": "workbench.action.nextEditor" },
+  { "key": "ctrl+shift+tab", "command": "workbench.action.previousEditor" },
+  { "key": "cmd+]", "command": "workbench.action.nextEditor" },
+  { "key": "cmd+[", "command": "workbench.action.previousEditor" },
+  {
+    "key": "cmd+]",
+    "command": "workbench.action.nextSideBarView",
+    "when": "sideBarFocus"
+  },
+  {
+    "key": "cmd+[",
+    "command": "workbench.action.previousSideBarView",
+    "when": "sideBarFocus"
+  },
+  {
+    "key": "cmd+]",
+    "command": "workbench.action.nextPanelView",
+    "when": "panelFocus"
+  },
+  {
+    "key": "cmd+[",
+    "command": "workbench.action.previousPanelView",
+    "when": "panelFocus"
+  },
+
+  // 補完ショートカットが Mac の IME 切替と競合するので
+  {
+    "key": "ctrl+cmd+shift+space",
+    "command": "editor.action.triggerSuggest",
+    "when": "editorHasCompletionItemProvider && editorTextFocus && !editorReadonly"
+  },
+
+  // アプリ終了操作を押しにくい複合ショートカットに変更
+  { "key": "ctrl+q", "command": "-workbench.action.quit" },
+  { "key": "cmd+q", "command": "-workbench.action.quit" },
+  { "key": "alt+ctrl+q", "command": "workbench.action.quit" },
+  { "key": "alt+cmd+q", "command": "workbench.action.quit" },
+
+  // ウィンドウを閉じる操作も押しにくい複合ショートカットに変更
+  { "key": "ctrl+shift+w", "command": "-workbench.action.closeWindow" },
+  { "key": "shift+cmd+w", "command": "-workbench.action.closeWindow" },
+  { "key": "alt+ctrl+w", "command": "workbench.action.closeWindow" },
+  { "key": "alt+cmd+w", "command": "workbench.action.closeWindow" },
+
+  // 最後のタブを閉じる時にウィンドウも一緒に閉じてしまうショートカットを無効化
+  {
+    "key": "ctrl+w",
+    "command": "-workbench.action.closeWindow",
+    "when": "!editorIsOpen && !multipleEditorGroups"
+  },
+  {
+    "key": "cmd+w",
+    "command": "-workbench.action.closeWindow",
+    "when": "!editorIsOpen && !multipleEditorGroups"
+  },
+
+  // ターミナルとエディタ間でフォーカスを移動するだけ
+  {
+    "key": "cmd+shift+j",
+    "command": "workbench.action.terminal.focus",
+    "when": "editorTextFocus"
+  },
+  {
+    "key": "cmd+shift+j",
+    "command": "workbench.action.focusActiveEditorGroup",
+    "when": "terminalFocus"
+  },
+  {
+    "key": "cmd+shift+`",
+    "command": "workbench.action.terminal.focus",
+    "when": "editorTextFocus"
+  },
+  {
+    "key": "cmd+shift+`",
+    "command": "workbench.action.focusActiveEditorGroup",
+    "when": "terminalFocus"
+  },
+
+  // 再検索
+  {
+    "key": "ctrl+shift+cmd+f",
+    "command": "search.action.refreshSearchResults",
+    "when": "searchViewletVisible"
+  },
+
+  // Extension: Code Outline
+  {
+    "key": "cmd+shift+o",
+    "command": "workbench.view.extension.outline",
+  },
+]
