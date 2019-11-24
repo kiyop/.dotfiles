@@ -23,6 +23,8 @@ VSCODE_EXTLIST=(
     esbenp.prettier-vscode
     octref.vetur
     rebornix.ruby
+    # デバッガー関連
+    msjsdiag.debugger-for-chrome
 )
 
 # 未使用だけどインストールしておくもの
