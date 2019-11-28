@@ -88,6 +88,17 @@ RPROMPT="%1(v|%F{green}%1v%f|)"
 setopt correct
 SPROMPT=$'%{\e[33m%}(*\'~\'%)? .｡oO( もしかして%{\e[m%} %U%B%r%b%u %{\e[33m%}かも? [そう!(y),そのまま(n),なおす(e),やめる(a)]:%{\e[m%} '
 
+# GNU Screen のタイトル（キャプション）をカレントディレクトリ名にする
+_gnu_screen_title() {
+  if [ "$TERM" = 'screen' -o "$TERM" = 'screen-256color' ]; then
+    echo -ne "\ek$(basename ${PWD/#${HOME}/\~})\e\\"
+  fi
+}
+_gnu_screen_title
+chpwd() {
+  _gnu_screen_title
+}
+
 # Google Cloud SDK
 if [ -d $GOOGLE_CLOUD_SDK ]; then
     source $GOOGLE_CLOUD_SDK/completion.zsh.inc
