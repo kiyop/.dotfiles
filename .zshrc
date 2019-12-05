@@ -100,8 +100,11 @@ chpwd() {
 }
 
 # Google Cloud SDK
-if [ -d $GOOGLE_CLOUD_SDK ]; then
-    source $GOOGLE_CLOUD_SDK/completion.zsh.inc
+if [ -f "${GOOGLE_CLOUD_SDK}/path.zsh.inc" ]; then
+  source "${GOOGLE_CLOUD_SDK}/path.zsh.inc"
+fi
+if [ -f "${GOOGLE_CLOUD_SDK}/completion.zsh.inc" ]; then
+  source "${GOOGLE_CLOUD_SDK}/completion.zsh.inc"
 fi
 # kerl
 if [ -d "${KERL_ROOT}/bin/zsh_completion" ]; then
