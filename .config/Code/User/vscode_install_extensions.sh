@@ -6,9 +6,11 @@ VSCODE_EXTLIST=(
     bceskavich.theme-dracula-at-night
     PKief.material-icon-theme
     # エディター・言語共通
+    eamodio.gitlens
     CoenraadS.bracket-pair-colorizer-2
     shardulm94.trailing-spaces
     wmaurer.change-case
+    Tyriar.sort-lines
     EditorConfig.EditorConfig
     formulahendry.code-runner
     eriklynd.json-tools

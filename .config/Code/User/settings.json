@@ -91,4 +91,8 @@
         "quotes": ["error", "double"],
         "no-inline-assembly": "warning",
     },
+
+    // JavaScript / TypeScript
+    "eslint.migration.2_x": "off",
+    "typescript.updateImportsOnFileMove.enabled": "prompt",
   }
