@@ -95,4 +95,13 @@
     // JavaScript / TypeScript
     "eslint.migration.2_x": "off",
     "typescript.updateImportsOnFileMove.enabled": "prompt",
+
+    // GitLens
+    "gitlens.menus": {
+        "editorGroup": {
+            // タブバー右のツールバーを隠す
+            "blame": false,
+            "compare": false
+        }
+    },
   }
