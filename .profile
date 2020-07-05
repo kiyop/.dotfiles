@@ -264,7 +264,7 @@ fi
 # Android SDK
 export ANDROID_SDK=$HOME/Library/Android/sdk
 if [ -d "${ANDROID_SDK}" ]; then
-    export PATH=${PATH}:${ANDROID_SDK}/platform-tools:${ANDROID_SDK}/tools
+    export PATH=${PATH}:${ANDROID_SDK}/emulator:${ANDROID_SDK}/platform-tools:${ANDROID_SDK}/tools
     type -p exp &>/dev/null && exp path &>/dev/null # for expo
 fi
 
