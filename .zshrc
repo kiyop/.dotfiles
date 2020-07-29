@@ -12,6 +12,7 @@ bindkey "^H"    backward-delete-char
 bindkey "[3~" delete-char
 bindkey "[1~" beginning-of-line
 bindkey "[4~" end-of-line
+export WORDCHARS='*?_.[]~-=&;!#$%^(){}<>' # 単語の区切り（スラッシュでも区切る）
 
 #setopt auto_cd                 # ディレクトリ名だけで cd する
 setopt auto_pushd              # cd で pushd する
