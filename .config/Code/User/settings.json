@@ -30,6 +30,7 @@
     "window.openFilesInNewWindow": "on",
     "window.title": "[${rootName}] ${activeEditorMedium} ${dirty}",
     "window.zoomLevel": 0,
+    "keyboard.touchbar.enabled": false,
     "breadcrumbs.enabled": true,
     "extensions.ignoreRecommendations": false,
     "extensions.autoUpdate": false,
