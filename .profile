@@ -267,6 +267,11 @@ if [ -d "${ANDROID_SDK}" ]; then
     export PATH=${PATH}:${ANDROID_SDK}/emulator:${ANDROID_SDK}/platform-tools:${ANDROID_SDK}/tools
     type -p exp &>/dev/null && exp path &>/dev/null # for expo
 fi
+# Flutter SDK
+export FLUTTER_SDK=$HOME/.flutter
+if [ -d "${FLUTTER_SDK}" ]; then
+    export PATH=${PATH}:${FLUTTER_SDK}/bin
+fi
 
 
 # ----------------------------------------
