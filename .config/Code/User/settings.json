@@ -66,6 +66,7 @@
     "search.showLineNumbers": true,
     "search.useReplacePreview": true,
     "terminal.integrated.rendererType": "canvas",
+    "terminal.integrated.cursorBlinking": true,
     "terminal.integrated.shell.osx": "/usr/bin/screen",
     "terminal.integrated.shellArgs.osx": [ "-xRU" ],
     "terminal.integrated.shell.windows": "C:\\Users\\username\\AppData\\Local\\Microsoft\\WindowsApps\\ubuntu.exe",
