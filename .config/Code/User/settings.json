@@ -67,11 +67,20 @@
     "search.useReplacePreview": true,
     "terminal.integrated.rendererType": "canvas",
     "terminal.integrated.cursorBlinking": true,
-    "terminal.integrated.shell.osx": "/usr/bin/screen",
-    "terminal.integrated.shellArgs.osx": [ "-xRU" ],
-    "terminal.integrated.shell.windows": "C:\\Users\\username\\AppData\\Local\\Microsoft\\WindowsApps\\ubuntu.exe",
-    "terminal.integrated.shellArgs.windows": [],
-
+    "terminal.integrated.defaultProfile.osx": "screen",
+    "terminal.integrated.profiles.osx": {
+        "screen": {
+            "path": "/usr/bin/screen",
+            "args": [ "-xRU" ]
+        }
+    },
+    "terminal.integrated.defaultProfile.windows": "ubuntu",
+    "terminal.integrated.profiles.windows": {
+        "ubuntu": {
+            "path": "C:\\Users\\username\\AppData\\Local\\Microsoft\\WindowsApps\\ubuntu.exe",
+            "args": []
+        }
+    },
     "markdown.preview.fontSize": 11,
     "markdown.preview.lineHeight": 1.6,
 
