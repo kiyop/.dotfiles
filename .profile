@@ -59,6 +59,7 @@ fi
 if [ `uname` = "Darwin" ]; then
     # macOS
     alias ll='ls -laG'
+    alias lll='ls -laGh'
     alias o='open'
     alias imgsize='mdls -name kMDItemPixelWidth -name kMDItemPixelHeight' # 画像サイズ取得
     alias vim='/Applications/MacVim.app/Contents/MacOS/Vim'
