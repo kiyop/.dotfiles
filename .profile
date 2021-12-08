@@ -69,6 +69,7 @@ if [ `uname` = "Darwin" ]; then
     [ -e "/Applications/Marked 2.app" ] && alias md='open -a "Marked 2"'
     [ -x "/Applications/Gyazo.app/Contents/MacOS/Gyazo" ] && alias gz='/Applications/Gyazo.app/Contents/MacOS/Gyazo'
 
+    data-uri() { echo -n "data:$(file -b --mime-type $1);base64,$(base64 < $1)"; } # Data URI Scheme
     ql() { qlmanage -p "$1" >& /dev/null; }
     pbcopy-chomp() { local s; read -rd '' s; echo -n "$s" | pbcopy; }
     pbcopy-file() { cat "$1" | pbcopy-chomp; }
