@@ -127,10 +127,10 @@ if [ -z "$SSH_CLIENT" -a -z "$SSH_CONNECTION" ]; then
     alias eq='screen -t earthquake earthquake'
     if [ `uname` = "Darwin" ]; then
         alias vi='screen -t vim /Applications/MacVim.app/Contents/MacOS/Vim'
-        alias http-serv='screen -t http php -S 0.0.0.0:8000 && open http://localhost:8000/'
+        alias http-serv='screen -t http php74 -S 0.0.0.0:8000 && open http://localhost:8000/'
     else
         alias vi='screen -t vim vim'
-        alias http-serv='screen -t http php -S 0.0.0.0:8000'
+        alias http-serv='screen -t http php74 -S 0.0.0.0:8000'
     fi
 fi
 

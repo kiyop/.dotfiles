@@ -92,8 +92,8 @@
 
     // for PHP IntelliSense Extension (It's NOT VS Code's built-in PHP IntelliSense)
     "php.suggest.basic": false,
-    "php.executablePath": "/Users/k2/.phpbrew/php/php-7.4.13/bin/php",
-    "php.validate.executablePath": "/Users/k2/.phpbrew/php/php-7.4.13/bin/php",
+    "php.executablePath": "/opt/local/bin/php74",
+    "php.validate.executablePath": "/opt/local/bin/php74",
     "emmet.showExpandedAbbreviation": "inMarkupAndStylesheetFilesOnly",
 
     // solidity lint rule (Solium)
