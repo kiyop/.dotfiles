@@ -110,6 +110,7 @@
     // JavaScript / TypeScript
     "eslint.migration.2_x": "off",
     "typescript.updateImportsOnFileMove.enabled": "prompt",
+    "svelte.enable-ts-plugin": true,
 
     // GitLens
     "gitlens.menus": {
