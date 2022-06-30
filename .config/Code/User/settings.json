@@ -13,6 +13,8 @@
     "workbench.editor.enablePreviewFromQuickOpen": false,
     "workbench.editor.highlightModifiedTabs": true,
     "workbench.editor.showTabs": true,
+    "workbench.editor.tabSizing": "shrink",
+    "workbench.editor.pinnedTabSizing": "shrink",
     "workbench.colorCustomizations": {
       "editor.selectionBackground": "#339",
       "editor.selectionHighlightBorder": "#666",
