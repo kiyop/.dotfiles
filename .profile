@@ -184,6 +184,9 @@ git-status-all-directories() {
 # ----------------------------------------
 # 以下、外部スクリプト系の読み込み
 
+# Homebrew
+export HOMEBREW_BIN="/opt/homebrew/bin/brew"
+[[ -s "${HOMEBREW_BIN}" ]] && eval "$(${HOMEBREW_BIN} shellenv)"
 # direnv
 type -p direnv &>/dev/null && eval "$(direnv hook $(basename ${SHELL}))"
 # emscripten (via emsdk-portable)
@@ -216,6 +219,9 @@ if [ -s "${NVM_DIR}/nvm.sh" ]; then
     #    alias ngrok='screen -t ngrok ngrok'
     #fi
 fi
+export NVM_BIN_DIR="/opt/homebrew/opt/nvm"
+[ -s "${NVM_BIN_DIR}/nvm.sh" ] && . "${NVM_BIN_DIR}/nvm.sh"
+[ -s "${NVM_BIN_DIR}/etc/bash_completion.d/nvm" ] && . "${NVM_BIN_DIR}/etc/bash_completion.d/nvm"
 # yarn (npm alternative)
 export YARN_ROOT="${HOME}/.yarn"
 if [ -s "${YARN_ROOT}/bin" ]; then
