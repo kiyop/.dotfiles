@@ -75,7 +75,8 @@
   "terminal.integrated.defaultProfile.osx": "screen",
   "terminal.integrated.profiles.osx": {
     "screen": {
-      "path": "/usr/bin/screen",
+      // "path": "/usr/bin/screen",
+      "path": "/opt/homebrew/bin/screen",
       "args": [ "-xRU" ]
     }
   },
