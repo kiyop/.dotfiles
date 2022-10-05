@@ -1,125 +1,127 @@
 {
-    "telemetry.enableTelemetry": false,
-    "telemetry.enableCrashReporter": false,
-    "workbench.iconTheme": "material-icon-theme",
-    "workbench.colorTheme": "Dracula At Night",
-    "workbench.statusBar.visible": true,
-    "workbench.activityBar.visible": true,
-    "workbench.startupEditor": "none",
-    "workbench.list.openMode": "doubleClick",
-    "workbench.tree.expandMode": "doubleClick",
-    "workbench.list.keyboardNavigation": "filter",
-    "workbench.editor.enablePreview": false,
-    "workbench.editor.enablePreviewFromQuickOpen": false,
-    "workbench.editor.highlightModifiedTabs": true,
-    "workbench.editor.showTabs": true,
-    "workbench.editor.tabSizing": "shrink",
-    "workbench.editor.pinnedTabSizing": "shrink",
-    "workbench.colorCustomizations": {
-      "editor.selectionBackground": "#339",
-      "editor.selectionHighlightBorder": "#666",
-      "titleBar.activeBackground": "#666",
-      "titleBar.activeForeground": "#BBB",
-      "titleBar.inactiveBackground": "#888",
-      "titleBar.inactiveForeground": "#AAA",
-      "terminal.background" : "#000",
-      "terminal.foreground" : "#eee",
-      "terminal.ansiBrightRed": "#f4b",
-      "terminal.ansiRed": "#f34",
-      "terminal.ansiBlue": "#49f",
-    },
-    "window.restoreWindows": "all",
-    "window.newWindowDimensions": "inherit",
-    "window.openFilesInNewWindow": "on",
-    "window.title": "[${rootName}] ${activeEditorMedium} ${dirty}",
-    "keyboard.touchbar.enabled": false,
-    "breadcrumbs.enabled": true,
-    "extensions.ignoreRecommendations": false,
-    "extensions.autoUpdate": false,
+  "telemetry.enableTelemetry": false,
+  "telemetry.enableCrashReporter": false,
+  "workbench.iconTheme": "material-icon-theme",
+  "workbench.colorTheme": "Dracula At Night",
+  "workbench.statusBar.visible": true,
+  "workbench.activityBar.visible": true,
+  "workbench.startupEditor": "none",
+  "workbench.list.openMode": "doubleClick",
+  "workbench.tree.expandMode": "doubleClick",
+  "workbench.list.keyboardNavigation": "filter",
+  "workbench.editor.enablePreview": false,
+  "workbench.editor.enablePreviewFromQuickOpen": false,
+  "workbench.editor.highlightModifiedTabs": true,
+  "workbench.editor.showTabs": true,
+  "workbench.editor.tabSizing": "shrink",
+  "workbench.editor.pinnedTabSizing": "shrink",
+  "workbench.colorCustomizations": {
+    "editor.selectionBackground": "#339",
+    "editor.selectionHighlightBorder": "#666",
+    "titleBar.activeBackground": "#666",
+    "titleBar.activeForeground": "#BBB",
+    "titleBar.inactiveBackground": "#888",
+    "titleBar.inactiveForeground": "#AAA",
+    "terminal.background" : "#000",
+    "terminal.foreground" : "#eee",
+    "terminal.ansiBrightRed": "#f4b",
+    "terminal.ansiRed": "#f34",
+    "terminal.ansiBlue": "#49f",
+  },
+  "window.restoreWindows": "all",
+  "window.newWindowDimensions": "inherit",
+  "window.openFilesInNewWindow": "on",
+  "window.title": "[${rootName}] ${activeEditorMedium} ${dirty}",
+  "keyboard.touchbar.enabled": false,
+  "breadcrumbs.enabled": true,
+  "extensions.ignoreRecommendations": false,
+  "extensions.autoUpdate": false,
 
-    "explorer.autoReveal": false,
-    "editor.fontFamily": "Ricty Discord",
-    "editor.fontSize": 12,
-    "editor.insertSpaces": true,
-    "editor.renderWhitespace": "boundary",
-    "editor.renderControlCharacters": true,
-    "editor.wordWrap": "on",
-    "editor.tabSize": 4,
-    "editor.detectIndentation": true,
-    "editor.autoIndent": "full",
-    "editor.autoClosingBrackets": "never",
-    "editor.autoClosingQuotes": "never",
-    "editor.bracketPairColorization.enabled": true,
-    "editor.guides.bracketPairs": true,
-    "editor.guides.highlightActiveIndentation": true,
-    "editor.guides.indentation": true,
-    "editor.minimap.enabled": true,
-    "editor.minimap.renderCharacters": false,
-    "editor.minimap.maxColumn": 40,
-    "editor.suggest.localityBonus": true,
-    "files.associations": {},
-    "files.exclude": {
-      "**/.sass-cache": true,
-      "**/node_modules": true,
-      "**/.DS_Store": true,
-      "**/.git": true,
-      "**/.svn": true,
-      "**/.hg": true
-    },
-    // "search.usePCRE2": true,
-    "search.showLineNumbers": true,
-    "search.useReplacePreview": true,
-    "terminal.integrated.rendererType": "canvas",
-    "terminal.integrated.cursorBlinking": true,
-    "terminal.integrated.enableMultiLinePasteWarning": false,
-    "terminal.integrated.defaultProfile.osx": "screen",
-    "terminal.integrated.profiles.osx": {
-        "screen": {
-            "path": "/usr/bin/screen",
-            "args": [ "-xRU" ]
-        }
-    },
-    "terminal.integrated.defaultProfile.windows": "ubuntu",
-    "terminal.integrated.profiles.windows": {
-        "ubuntu": {
-            "path": "C:\\Users\\username\\AppData\\Local\\Microsoft\\WindowsApps\\ubuntu.exe",
-            "args": []
-        }
-    },
-    "markdown.preview.fontSize": 11,
-    "markdown.preview.lineHeight": 1.6,
+  "explorer.autoReveal": false,
+  "editor.fontFamily": "Ricty Discord",
+  "editor.fontSize": 12,
+  "editor.insertSpaces": true,
+  "editor.renderWhitespace": "boundary",
+  "editor.renderControlCharacters": true,
+  "editor.wordWrap": "on",
+  "editor.tabSize": 4,
+  "editor.detectIndentation": true,
+  "editor.autoIndent": "full",
+  "editor.autoClosingBrackets": "never",
+  "editor.autoClosingQuotes": "never",
+  "editor.bracketPairColorization.enabled": true,
+  "editor.guides.bracketPairs": true,
+  "editor.guides.highlightActiveIndentation": true,
+  "editor.guides.indentation": true,
+  "editor.minimap.enabled": true,
+  "editor.minimap.renderCharacters": false,
+  "editor.minimap.maxColumn": 40,
+  "editor.suggest.localityBonus": true,
+  "files.associations": {},
+  "files.exclude": {
+    "**/.sass-cache": true,
+    "**/node_modules": true,
+    "**/.DS_Store": true,
+    "**/.git": true,
+    "**/.svn": true,
+    "**/.hg": true
+  },
+  // "search.usePCRE2": true,
+  "search.showLineNumbers": true,
+  "search.useReplacePreview": true,
+  "terminal.integrated.rendererType": "canvas",
+  "terminal.integrated.cursorBlinking": true,
+  "terminal.integrated.enableMultiLinePasteWarning": false,
+  "terminal.integrated.defaultProfile.osx": "screen",
+  "terminal.integrated.profiles.osx": {
+    "screen": {
+      "path": "/usr/bin/screen",
+      "args": [ "-xRU" ]
+    }
+  },
+  "terminal.integrated.defaultProfile.windows": "ubuntu",
+  "terminal.integrated.profiles.windows": {
+    "ubuntu": {
+      "path": "C:\\Users\\username\\AppData\\Local\\Microsoft\\WindowsApps\\ubuntu.exe",
+      "args": []
+    }
+  },
+  "markdown.preview.fontSize": 11,
+  "markdown.preview.lineHeight": 1.6,
 
-    // tailing spaces
-    "trailing-spaces.regexp": "[ \t　]+",
-    "trailing-spaces.syntaxIgnore": ["markdown", "log"],
-    "trailing-spaces.trimOnSave": false,
+  // tailing spaces
+  "trailing-spaces.regexp": "[ \t　]+",
+  "trailing-spaces.syntaxIgnore": ["markdown", "log"],
+  "trailing-spaces.trimOnSave": false,
 
-    // for PHP IntelliSense Extension (It's NOT VS Code's built-in PHP IntelliSense)
-    "php.suggest.basic": false,
-    "php.executablePath": "/opt/local/bin/php74",
-    "php.validate.executablePath": "/opt/local/bin/php74",
-    "emmet.showExpandedAbbreviation": "inMarkupAndStylesheetFilesOnly",
+  // for PHP IntelliSense Extension (It's NOT VS Code's built-in PHP IntelliSense)
+  "php.suggest.basic": false,
+  // "php.executablePath": "/opt/local/bin/php74",
+  // "php.validate.executablePath": "/opt/local/bin/php74",
+  "php.executablePath": "/opt/homebrew/bin/php",
+  "php.validate.executablePath": "/opt/homebrew/bin/php",
+  "emmet.showExpandedAbbreviation": "inMarkupAndStylesheetFilesOnly",
 
-    // solidity lint rule (Solium)
-    "solidity.linter": "solium",
-    "solidity.soliumRules": {
-        "indentation": ["warning", 2],
-        //"quotes": "off",
-        "quotes": ["error", "double"],
-        "no-inline-assembly": "warning",
-    },
+  // solidity lint rule (Solium)
+  "solidity.linter": "solium",
+  "solidity.soliumRules": {
+    "indentation": ["warning", 2],
+    //"quotes": "off",
+    "quotes": ["error", "double"],
+    "no-inline-assembly": "warning",
+  },
 
-    // JavaScript / TypeScript
-    "eslint.migration.2_x": "off",
-    "typescript.updateImportsOnFileMove.enabled": "prompt",
-    "svelte.enable-ts-plugin": true,
+  // JavaScript / TypeScript
+  "eslint.migration.2_x": "off",
+  "typescript.updateImportsOnFileMove.enabled": "prompt",
+  "svelte.enable-ts-plugin": true,
 
-    // GitLens
-    "gitlens.menus": {
-        "editorGroup": {
-            // タブバー右のツールバーを隠す
-            "blame": false,
-            "compare": false
-        }
-    },
-  }
+  // GitLens
+  "gitlens.menus": {
+    "editorGroup": {
+      // タブバー右のツールバーを隠す
+      "blame": false,
+      "compare": false
+    }
+  },
+}
