@@ -1,6 +1,4 @@
 {
-  "telemetry.enableTelemetry": false,
-  "telemetry.enableCrashReporter": false,
   "workbench.iconTheme": "material-icon-theme",
   "workbench.colorTheme": "Dracula At Night",
   "workbench.statusBar.visible": true,
@@ -28,6 +26,7 @@
     "terminal.ansiRed": "#f34",
     "terminal.ansiBlue": "#49f",
   },
+  "window.zoomLevel": 0.5,
   "window.restoreWindows": "all",
   "window.newWindowDimensions": "inherit",
   "window.openFilesInNewWindow": "on",
@@ -80,6 +79,8 @@
       "args": [ "-xRU" ]
     }
   },
+  "markdown.preview.fontSize": 11,
+  "markdown.preview.lineHeight": 1.6,
   "terminal.integrated.defaultProfile.windows": "ubuntu",
   "terminal.integrated.profiles.windows": {
     "ubuntu": {
@@ -87,8 +88,8 @@
       "args": []
     }
   },
-  "markdown.preview.fontSize": 11,
-  "markdown.preview.lineHeight": 1.6,
+  "telemetry.enableTelemetry": false,
+  "telemetry.enableCrashReporter": false,
 
   // tailing spaces
   "trailing-spaces.regexp": "[ \t　]+",
