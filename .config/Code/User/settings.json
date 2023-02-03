@@ -117,6 +117,7 @@
   "eslint.migration.2_x": "off",
   "typescript.updateImportsOnFileMove.enabled": "prompt",
   "svelte.enable-ts-plugin": true,
+  "svelte.plugin.svelte.note-new-transformation": false,
 
   // GitLens
   "gitlens.menus": {
