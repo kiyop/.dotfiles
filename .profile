@@ -222,11 +222,6 @@ fi
 export NVM_BIN_DIR="/opt/homebrew/opt/nvm"
 [ -s "${NVM_BIN_DIR}/nvm.sh" ] && . "${NVM_BIN_DIR}/nvm.sh"
 [ -s "${NVM_BIN_DIR}/etc/bash_completion.d/nvm" ] && . "${NVM_BIN_DIR}/etc/bash_completion.d/nvm"
-# yarn (npm alternative)
-export YARN_ROOT="${HOME}/.yarn"
-if [ -s "${YARN_ROOT}/bin" ]; then
-    export PATH="${YARN_ROOT}/bin:$PATH"
-fi
 # Python (via pyenv)
 export PYENV_ROOT="${HOME}/.pyenv"
 if [ -s "${PYENV_ROOT}/bin/pyenv" ]; then
