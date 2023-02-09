@@ -73,7 +73,7 @@ if [ `uname` = "Darwin" ]; then
     data-uri() { echo -n "data:$(file -b --mime-type $1);base64,$(base64 < $1)"; } # Data URI Scheme
     ql() { qlmanage -p "$1" >& /dev/null; }
     pbcopy-chomp() { local s; read -rd '' s; echo -n "$s" | pbcopy; }
-    pbcopy-file() { cat "$1" | pbcopy-chomp; }
+    pbcopy-file() { pbcopy < "$1"; }
     unixtime-now() { date +%s; }
     unixtime-to-iso8601-utc() { [ -z "$1" ] && t=$(unixtime-now) || t="$1"; date -u -r "$t" +%FT%TZ; }
     unixtime-to-iso8601-tz() { [ -z "$1" ] && t=$(unixtime-now) || t="$1"; date -r "$t" +%FT%T%z; }
