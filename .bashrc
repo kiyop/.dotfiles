@@ -1,6 +1,6 @@
 # .bashrc
 if [ -f ~/.profile ]; then
-    source ~/.profile
+  source ~/.profile
 fi
 
 export PS1='\u@\h:\W\$ '
@@ -12,6 +12,11 @@ fi
 
 # Google Cloud SDK
 if [ -d $GOOGLE_CLOUD_SDK ]; then
-    source $GOOGLE_CLOUD_SDK/completion.bash.inc
+  source $GOOGLE_CLOUD_SDK/completion.bash.inc
+fi
+
+# Docker CLI
+if [ -s "${DOCKER_DIR}/init-bash.sh" ]; then
+  source "${DOCKER_DIR}/init-bash.sh" || true
 fi
 

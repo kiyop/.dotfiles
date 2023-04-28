@@ -275,6 +275,8 @@ export FLUTTER_SDK=$HOME/.flutter
 if [ -d "${FLUTTER_SDK}" ]; then
     export PATH=${PATH}:${FLUTTER_SDK}/bin
 fi
+# Docker
+export DOCKER_DIR=$HOME/.docker
 
 
 # ----------------------------------------
@@ -282,4 +284,3 @@ fi
 if [ -f $HOME/.profile_local_postprofile ]; then
     source $HOME/.profile_local_postprofile
 fi
-

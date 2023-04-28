@@ -109,9 +109,14 @@ if [ -f "${GOOGLE_CLOUD_SDK}/completion.zsh.inc" ]; then
 fi
 # kerl
 if [ -d "${KERL_ROOT}/bin/zsh_completion" ]; then
-    fpath=($fpath "${KERL_ROOT}/bin/zsh_completion")
+  fpath=($fpath "${KERL_ROOT}/bin/zsh_completion")
 fi
 ## Chef DK
 #if type -p chef &>/dev/null; then
 #    eval "$(chef shell-init zsh)"
 #fi
+
+# Docker CLI
+if [ -s "${DOCKER_DIR}/init-zsh.sh" ]; then
+  source "${DOCKER_DIR}/init-zsh.sh" || true
+fi
