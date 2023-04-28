@@ -109,6 +109,10 @@ if [ `uname` = "Darwin" ]; then
         export PATH=/opt/local/bin:/opt/local/sbin:$PATH
         export MANPATH=/opt/local/share/man:$MANPATH
     fi
+
+    if [ -e "/usr/bin/python3" ]; then
+        alias python="/usr/bin/python3"
+    fi
 else
     alias ll='ls -la --color'
     alias less='/usr/share/vim/vim74/macros/less.sh'
