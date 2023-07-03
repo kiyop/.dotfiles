@@ -189,7 +189,8 @@ git-status-all-directories() {
 # 以下、外部スクリプト系の読み込み
 
 # Homebrew
-export HOMEBREW_BIN="/opt/homebrew/bin/brew"
+export HOMEBREW_DIR="/opt/homebrew"
+export HOMEBREW_BIN="${HOMEBREW_DIR}/bin/brew"
 [[ -s "${HOMEBREW_BIN}" ]] && eval "$(${HOMEBREW_BIN} shellenv)"
 # direnv
 type -p direnv &>/dev/null && eval "$(direnv hook $(basename ${SHELL}))"

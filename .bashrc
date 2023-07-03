@@ -19,4 +19,3 @@ fi
 if [ -s "${DOCKER_DIR}/init-bash.sh" ]; then
   source "${DOCKER_DIR}/init-bash.sh" || true
 fi
-

@@ -120,3 +120,7 @@ fi
 if [ -s "${DOCKER_DIR}/init-zsh.sh" ]; then
   source "${DOCKER_DIR}/init-zsh.sh" || true
 fi
+
+if [ -x "${HOMEBREW_DIR}/share/zsh-autosuggestions/zsh-autosuggestions.zsh" ]; then
+  source "${HOMEBREW_DIR}/share/zsh-autosuggestions/zsh-autosuggestions.zsh" || true
+fi
