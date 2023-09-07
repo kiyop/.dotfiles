@@ -48,6 +48,7 @@
   "editor.autoIndent": "full",
   "editor.autoClosingBrackets": "never",
   "editor.autoClosingQuotes": "never",
+  "editor.occurrencesHighlight": false,
   "editor.bracketPairColorization.enabled": true,
   "editor.guides.bracketPairs": true,
   "editor.guides.highlightActiveIndentation": true,
