@@ -1,7 +1,7 @@
 [
   { "key": "alt+cmd+a", "command": "workbench.action.toggleActivityBarVisibility" },
   { "key": "alt+cmd+b", "command": "workbench.action.toggleSidebarVisibility" },
-  { "key": "shift+cmd+v", "command": "markdown.showPreviewToSide", "when": "editorLangId == 'markdown'" },
+  { "key": "alt+cmd+v", "command": "markdown.showPreviewToSide", "when": "editorLangId == 'markdown'" },
 
   // ファイルタブ間、各種コンソール間、サイドメニュー間でアクティブなタブ（最前面のもの）を切り替える
   { "key": "ctrl+tab", "command": "workbench.action.nextEditor" },
@@ -31,7 +31,7 @@
 
   // 補完ショートカットが Mac の IME 切替と競合するので
   {
-    "key": "ctrl+cmd+shift+space",
+    "key": "alt+ctrl+cmd+space",
     "command": "editor.action.triggerSuggest",
     "when": "editorHasCompletionItemProvider && editorTextFocus && !editorReadonly"
   },
