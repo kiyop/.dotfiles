@@ -6,11 +6,11 @@
   "workbench.startupEditor": "none",
   "workbench.list.openMode": "doubleClick",
   "workbench.tree.expandMode": "doubleClick",
-  "workbench.list.keyboardNavigation": "filter",
+  "workbench.list.defaultFindMode": "filter",
   "workbench.editor.enablePreview": false,
   "workbench.editor.enablePreviewFromQuickOpen": false,
   "workbench.editor.highlightModifiedTabs": true,
-  "workbench.editor.showTabs": true,
+  "workbench.editor.showTabs": "single",
   "workbench.editor.tabSizing": "shrink",
   "workbench.editor.pinnedTabSizing": "shrink",
   "workbench.colorCustomizations": {
@@ -89,8 +89,7 @@
       "args": []
     }
   },
-  "telemetry.enableTelemetry": false,
-  "telemetry.enableCrashReporter": false,
+  "telemetry.telemetryLevel": "off",
 
   // tailing spaces
   "trailing-spaces.regexp": "[ \t　]+",
