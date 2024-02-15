@@ -6,6 +6,7 @@
   "workbench.startupEditor": "none",
   "workbench.list.openMode": "doubleClick",
   "workbench.tree.expandMode": "doubleClick",
+  "workbench.tree.enableStickyScroll": true,
   "workbench.list.defaultFindMode": "filter",
   "workbench.editor.enablePreview": false,
   "workbench.editor.enablePreviewFromQuickOpen": false,
@@ -48,7 +49,7 @@
   "editor.autoIndent": "full",
   "editor.autoClosingBrackets": "never",
   "editor.autoClosingQuotes": "never",
-  "editor.occurrencesHighlight": false,
+  "editor.occurrencesHighlight": "off",
   "editor.bracketPairColorization.enabled": true,
   "editor.guides.bracketPairs": true,
   "editor.guides.highlightActiveIndentation": true,
@@ -71,7 +72,7 @@
   "search.useReplacePreview": true,
   "terminal.integrated.rendererType": "canvas",
   "terminal.integrated.cursorBlinking": true,
-  "terminal.integrated.enableMultiLinePasteWarning": false,
+  "terminal.integrated.enableMultiLinePasteWarning": "never",
   "terminal.integrated.defaultProfile.osx": "screen",
   "terminal.integrated.profiles.osx": {
     "screen": {
