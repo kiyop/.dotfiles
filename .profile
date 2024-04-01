@@ -147,11 +147,11 @@ alias alt-pwgen="</dev/urandom LANG=C tr -dc A-Za-z0-9 | head -c$1"
 alias alt-pwgen-strict="</dev/urandom LANG=C tr -dc [:graph:] | head -c$1"
 teetime() { while IFS= read l; do d=$(echo "$l" | sed "s/^/[$(date +'%F %T')] /"); echo "$d"; [ -n "$1" ] && echo "$d" >> "$1"; done; }
 teetime+() { [ -n "$1" ] && teetime "$1-$(date +%Y%m%d_%H%M%S)" || teetime; }
-outcome() {
+exectime() {
     t=$(date +%s); "$@"; e=$?; t=$(($(date +%s) - $t)); printf '\nExited with code %d\n' $e;
     printf 'Done in %d days %02d:%02d:%02d (%d sec.)\n' $(($t/86400)) $(($t%86400/3600)) $(($t%3600/60)) $(($t%60)) $t;
 }
-logging() { [ $# -ge 2 ] && { outcome "${@:2}" 2>&1 | teetime+ "$1"; } || { echo "usage: $0 <log_file> <command>..."; return 1; } }
+logging() { [ $# -ge 2 ] && { exectime "${@:2}" 2>&1 | teetime+ "$1"; } || { echo "usage: $0 <log_file> <command>..."; return 1; } }
 
 memcache-cli() {
     #bash -c "echo -e \"$1\\nquit\"" | curl -s -T - telnet://localhost:11211;
