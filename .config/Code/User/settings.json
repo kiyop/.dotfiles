@@ -27,7 +27,7 @@
     "terminal.ansiRed": "#f34",
     "terminal.ansiBlue": "#49f",
   },
-  "window.zoomLevel": 0.1,
+  "window.zoomLevel": 0.5,
   "window.restoreWindows": "all",
   "window.newWindowDimensions": "inherit",
   "window.openFilesInNewWindow": "on",
@@ -40,7 +40,7 @@
 
   "explorer.autoReveal": false,
   "editor.fontFamily": "Ricty Discord",
-  "editor.fontSize": 12.5,
+  "editor.fontSize": 11.5,
   "editor.insertSpaces": true,
   "editor.renderWhitespace": "boundary",
   "editor.renderControlCharacters": true,
@@ -83,7 +83,7 @@
     }
   },
   "git.openRepositoryInParentFolders" : "never",
-  "markdown.preview.fontSize": 11,
+  "markdown.preview.fontSize": 12,
   "markdown.preview.lineHeight": 1.6,
   "terminal.integrated.defaultProfile.windows": "ubuntu",
   "terminal.integrated.profiles.windows": {
