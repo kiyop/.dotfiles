@@ -27,7 +27,7 @@
     "terminal.ansiRed": "#f34",
     "terminal.ansiBlue": "#49f",
   },
-  "window.zoomLevel": 0,
+  "window.zoomLevel": 0.1,
   "window.restoreWindows": "all",
   "window.newWindowDimensions": "inherit",
   "window.openFilesInNewWindow": "on",
