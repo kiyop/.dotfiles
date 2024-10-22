@@ -25,7 +25,8 @@ autodetach on
 
 # ステータスライン
 backtick 0 600 1 battery-remain
-hardstatus alwayslastline "[%02c/%`] %-w%{=b bw}%n %t%{-}%+w %= %?%{=brw}%2`%{-} %?%1`"
+#hardstatus alwayslastline "[%c/%`] %-w%{=b bw}%n %t%{-}%+w %= (%l@%H)" # for v4.x
+hardstatus alwayslastline "%{=0;255}[%c/%`] %-w%{=b0;4}%n %t%{-}%+w %= (%l@%H)" # for v5.x
 # 最初の権利表示とかしない
 startup_message off
 # スクロールバッファ
