@@ -1,4 +1,5 @@
 {
+  "application.shellEnvironmentResolutionTimeout": 30,
   "workbench.iconTheme": "material-icon-theme",
   "workbench.colorTheme": "Dracula At Night",
   "workbench.statusBar.visible": true,
