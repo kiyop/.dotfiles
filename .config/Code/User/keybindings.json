@@ -29,6 +29,13 @@
     "when": "panelFocus"
   },
 
+  // 置換パネルを開く
+  {
+    "key": "cmd+g",
+    "command": "editor.action.startFindReplaceAction",
+    "when": "editorTextFocus || findWidgetVisible"
+  },
+
   // 補完ショートカットが Mac の IME 切替と競合するので
   {
     "key": "alt+ctrl+cmd+space",
