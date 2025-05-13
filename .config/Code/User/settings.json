@@ -15,6 +15,7 @@
   "workbench.editor.showTabs" : "multiple",
   "workbench.editor.tabSizing": "shrink",
   "workbench.editor.pinnedTabSizing": "shrink",
+  "workbench.editorAssociations": { "*.svg": "default" },
   "workbench.colorCustomizations": {
     "editor.selectionBackground": "#339",
     "editor.selectionHighlightBorder": "#666",
