@@ -280,6 +280,13 @@ export FLUTTER_SDK=$HOME/.flutter
 if [ -d "${FLUTTER_SDK}" ]; then
     export PATH=${PATH}:${FLUTTER_SDK}/bin
 fi
+# Foundry (Solidity Toolkit)
+# https://book.getfoundry.sh/
+# curl -L https://foundry.paradigm.xyz | bash
+export FOUNDRY_DIR=$HOME/.foundry
+if [ -d "${FOUNDRY_DIR}" ]; then
+    export PATH=${PATH}:${FOUNDRY_DIR}/bin
+fi
 # Docker
 export DOCKER_DIR=$HOME/.docker
 
