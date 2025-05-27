@@ -11,8 +11,11 @@ if [ "$TERM" = 'screen' -o "$TERM" = 'screen-256color' ]; then
 fi
 
 # Google Cloud SDK
-if [ -d $GOOGLE_CLOUD_SDK ]; then
-  source $GOOGLE_CLOUD_SDK/completion.bash.inc
+if [ -f "${GOOGLE_CLOUD_SDK}/path.bash.inc" ]; then
+  source "${GOOGLE_CLOUD_SDK}/path.bash.inc"
+fi
+if [ -f "${x}/completion.bash.inc" ]; then
+  source "${GOOGLE_CLOUD_SDK}/completion.bash.inc"
 fi
 
 # Docker CLI

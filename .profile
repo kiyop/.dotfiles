@@ -245,14 +245,9 @@ fi
 export KIEX_ROOT="${HOME}/.kiex"
 [[ -s "${KIEX_ROOT}/scripts/kiex" ]] && source "${KIEX_ROOT}/scripts/kiex"
 # Google Cloud SDK
-export GOOGLE_CLOUD_SDK=$HOME/google-cloud-sdk
-if [ -d $GOOGLE_CLOUD_SDK ]; then
-    export APPENGINE_SDK=$GOOGLE_CLOUD_SDK/platform/google_appengine
-    export APPENGINE_APP_CFG=$GOOGLE_CLOUD_SDK/bin/appcfg.py
-    export APPENGINE_DEV_APPSERVER=$GOOGLE_CLOUD_SDK/bin/dev_appserver.py
-    export PATH=$GOOGLE_CLOUD_SDK/bin:$PATH
-fi
+export GOOGLE_CLOUD_SDK="$HOME/google-cloud-sdk"
 # Docker (using docker-machine)
+export DOCKER_DIR="$HOME/.docker"
 if type -p docker-machine &>/dev/null; then
     docker-machine-env() { eval "$(docker-machine env default)"; }
     if [ -n "$(docker-machine ls --quiet --filter 'state=Running' --filter 'name=default')" ]; then
@@ -270,26 +265,23 @@ if type -p docker-machine &>/dev/null; then
     }
 fi
 # Android SDK
-export ANDROID_SDK=$HOME/Library/Android/sdk
+export ANDROID_SDK="$HOME/Library/Android/sdk"
 if [ -d "${ANDROID_SDK}" ]; then
     export PATH=${PATH}:${ANDROID_SDK}/emulator:${ANDROID_SDK}/platform-tools:${ANDROID_SDK}/tools
     type -p exp &>/dev/null && exp path &>/dev/null # for expo
 fi
 # Flutter SDK
-export FLUTTER_SDK=$HOME/.flutter
+export FLUTTER_SDK="$HOME/.flutter"
 if [ -d "${FLUTTER_SDK}" ]; then
     export PATH=${PATH}:${FLUTTER_SDK}/bin
 fi
 # Foundry (Solidity Toolkit)
 # https://book.getfoundry.sh/
 # curl -L https://foundry.paradigm.xyz | bash
-export FOUNDRY_DIR=$HOME/.foundry
+export FOUNDRY_DIR="$HOME/.foundry"
 if [ -d "${FOUNDRY_DIR}" ]; then
     export PATH=${PATH}:${FOUNDRY_DIR}/bin
 fi
-# Docker
-export DOCKER_DIR=$HOME/.docker
-
 
 # ----------------------------------------
 # 環境依存の初期化（後付け用）

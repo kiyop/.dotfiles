@@ -107,6 +107,7 @@ fi
 if [ -f "${GOOGLE_CLOUD_SDK}/completion.zsh.inc" ]; then
   source "${GOOGLE_CLOUD_SDK}/completion.zsh.inc"
 fi
+
 # kerl
 if [ -d "${KERL_ROOT}/bin/zsh_completion" ]; then
   fpath=($fpath "${KERL_ROOT}/bin/zsh_completion")
