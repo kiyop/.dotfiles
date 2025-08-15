@@ -120,6 +120,7 @@
   },
 
   // JavaScript / TypeScript
+  "npm.scriptHover": false,
   "eslint.migration.2_x": "off",
   "typescript.suggest.autoImports": false,
   "typescript.updateImportsOnFileMove.enabled": "prompt",
