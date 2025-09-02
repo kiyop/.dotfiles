@@ -62,7 +62,9 @@
   "editor.minimap.maxColumn": 40,
   "editor.suggest.localityBonus": true,
   "files.autoGuessEncoding": true,
-  "files.associations": {},
+  "files.associations": {
+    "*.toml": "toml",
+  },
   "files.exclude": {
     "**/.sass-cache": true,
     "**/node_modules": true,
