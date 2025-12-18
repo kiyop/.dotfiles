@@ -138,6 +138,7 @@
       "compare": false,
     }
   },
+  "gitlens.rebaseEditor.openOnPausedRebase": false, // ターミナルでリベースした時、勝手にリベースエディターを開かない
   "gitlens.advanced.messages": {
     "suppressIntegrationDisconnectedTooManyFailedRequestsWarning": true,
   },
