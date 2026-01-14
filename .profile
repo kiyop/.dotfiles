@@ -58,8 +58,7 @@ fi
 
 if [ `uname` = "Darwin" ]; then
     # macOS
-    alias ll='ls -laG'
-    alias lll='ls -laGh'
+    alias ll='ls -lahG'
     alias o='open'
     alias imgsize='mdls -name kMDItemPixelWidth -name kMDItemPixelHeight' # 画像サイズ取得
     alias vim='/Applications/MacVim.app/Contents/MacOS/Vim'
@@ -114,7 +113,7 @@ if [ `uname` = "Darwin" ]; then
         alias python="/usr/bin/python3"
     fi
 else
-    alias ll='ls -la --color'
+    alias ll='ls -lah --color'
     alias less='/usr/share/vim/vim74/macros/less.sh'
 fi
 
