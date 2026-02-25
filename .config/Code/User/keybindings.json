@@ -2,6 +2,7 @@
   { "key": "alt+cmd+a", "command": "workbench.action.toggleActivityBarVisibility" },
   { "key": "alt+cmd+b", "command": "workbench.action.toggleSidebarVisibility" },
   { "key": "alt+cmd+v", "command": "markdown.showPreviewToSide", "when": "editorLangId == 'markdown'" },
+  { "key": "shift+cmd+c", "command": "-workbench.action.terminal.openNativeConsole", "when": "!terminalFocus", },
 
   // ファイルタブ間、各種コンソール間、サイドメニュー間でアクティブなタブ（最前面のもの）を切り替える
   { "key": "ctrl+tab", "command": "workbench.action.nextEditor" },

@@ -42,7 +42,7 @@
 
   "explorer.autoReveal": false,
   "editor.fontFamily": "Ricty Discord",
-  "editor.fontSize": 11.5,
+  "editor.fontSize": 12,
   "editor.insertSpaces": true,
   "editor.renderWhitespace": "boundary",
   "editor.renderControlCharacters": true,
