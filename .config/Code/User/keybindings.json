@@ -5,7 +5,7 @@
 
   // ファイルタブ間、各種コンソール間、サイドメニュー間でアクティブなタブ（最前面のもの）を切り替える
   { "key": "ctrl+tab", "command": "workbench.action.nextEditor" },
-  { "key": "ctrl+shift+tab", "command": "workbench.action.previousEditor" },
+  { "key": "shift+ctrl+tab", "command": "workbench.action.previousEditor" },
   { "key": "cmd+]", "command": "workbench.action.nextEditor" },
   { "key": "cmd+[", "command": "workbench.action.previousEditor" },
   {
@@ -50,7 +50,7 @@
   { "key": "alt+cmd+q", "command": "workbench.action.quit" },
 
   // ウィンドウを閉じる操作も押しにくい複合ショートカットに変更
-  { "key": "ctrl+shift+w", "command": "-workbench.action.closeWindow" },
+  { "key": "shift+ctrl+w", "command": "-workbench.action.closeWindow" },
   { "key": "shift+cmd+w", "command": "-workbench.action.closeWindow" },
   { "key": "alt+ctrl+w", "command": "workbench.action.closeWindow" },
   { "key": "alt+cmd+w", "command": "workbench.action.closeWindow" },
@@ -99,36 +99,36 @@
 
   // ターミナルとエディタ間でフォーカスを移動するだけ
   {
-    "key": "cmd+shift+j",
+    "key": "shift+cmd+j",
     "command": "workbench.action.terminal.focus",
     "when": "editorTextFocus"
   },
   {
-    "key": "cmd+shift+j",
+    "key": "shift+cmd+j",
     "command": "workbench.action.focusActiveEditorGroup",
     "when": "terminalFocus"
   },
   {
-    "key": "cmd+shift+`",
+    "key": "shift+cmd+`",
     "command": "workbench.action.terminal.focus",
     "when": "editorTextFocus"
   },
   {
-    "key": "cmd+shift+`",
+    "key": "shift+cmd+`",
     "command": "workbench.action.focusActiveEditorGroup",
     "when": "terminalFocus"
   },
 
   // 再検索
   {
-    "key": "ctrl+shift+cmd+f",
+    "key": "shift+ctrl+cmd+f",
     "command": "search.action.refreshSearchResults",
     "when": "searchViewletVisible"
   },
 
   // Extension: Code Outline
   {
-    "key": "cmd+shift+o",
+    "key": "shift+cmd+o",
     "command": "workbench.view.extension.outline",
   },
 ]
